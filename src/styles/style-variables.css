@@ -17,27 +17,27 @@
   --space-xl: 8rem;
 
   /* Theme: Dark Mode (Default) */
-  --color-bg-primary: #0e1424; /* Tinta Oscura */
-  --color-bg-secondary: #1b2a56; /* Índigo Profundo */
-  --color-bg-tertiary: #111b36;
+  --color-bg-primary: #121214; /* Gris Carbón Profundo */
+  --color-bg-secondary: #18181b; /* Gris Carbón Oscuro */
+  --color-bg-tertiary: #1f1f23;
   --color-text-primary: #f4f1e6; /* Heritage Cream */
   --color-text-secondary: #c8c5ba;
-  --color-text-muted: #7d8b9e;
+  --color-text-muted: #88888e;
   
   --color-accent-primary: #f5a524; /* Ámbar Cálido */
   --color-accent-primary-hover: #db901a;
-  --color-accent-primary-text: #0e1424; /* Tinta Oscura para contraste */
+  --color-accent-primary-text: #121214; /* Gris Carbón para contraste */
   --color-accent-secondary: #ce1126; /* Canadian Red */
   --color-accent-secondary-hover: #b00e1f;
   
-  --color-border: rgba(244, 241, 230, 0.1);
+  --color-border: rgba(255, 255, 255, 0.08);
   --color-border-focus: rgba(245, 165, 36, 0.5);
-  --color-card-bg: rgba(27, 42, 86, 0.4);
-  --color-card-hover: rgba(33, 51, 102, 0.6);
-  --shadow-primary: rgba(0, 0, 0, 0.3);
+  --color-card-bg: rgba(24, 24, 27, 0.6);
+  --color-card-hover: rgba(39, 39, 42, 0.7);
+  --shadow-primary: rgba(0, 0, 0, 0.4);
   
-  --glass-bg: rgba(14, 20, 36, 0.7);
-  --glass-border: rgba(244, 241, 230, 0.08);
+  --glass-bg: rgba(18, 18, 20, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.06);
 
   /* Brand Logo Variables (Naranja para modo oscuro) */
   --color-logo-bg: #f5a524;

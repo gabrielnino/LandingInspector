@@ -16,13 +16,19 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--color-bg-primary);
+  background-image: radial-gradient(circle at 50% 30%, #1e1e22 0%, #0e0e10 100%);
+  background-attachment: fixed;
   color: var(--color-text-primary);
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color var(--transition-slow), color var(--transition-slow);
+  transition: background-color var(--transition-slow), color var(--transition-slow), background-image var(--transition-slow);
+}
+
+html[data-theme="brand"] body {
+  background-image: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
