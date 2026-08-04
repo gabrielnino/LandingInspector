@@ -14,9 +14,9 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
   <input type="hidden" name="tasa_fuga_estimada" id="form-score-fuga" value="No completada" />
   <input type="hidden" name="fallas_detectadas" id="form-fallas" value="Ninguna" />
 
-  <!-- Tarjeta A: Datos de Contacto -->
-  <div class="form-card-part glass-panel">
-    <div class="card-badge">Paso 1</div>
+  <!-- Tarjeta A: Datos de Contacto (Paso 1) -->
+  <div class="form-card-part glass-panel" id="form-step-1">
+    <div class="card-badge">Paso 1 de 2</div>
     <h3 class="card-title-form">Tus Datos de Contacto</h3>
     <div class="form-card-content">
       <div class="form-group">
@@ -38,12 +38,18 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
         <label for="client-website" class="form-label">Tu Web o Red Principal</label>
         <input type="url" name="website" id="client-website" class="form-input" placeholder="Ej: https://tudominio.com" required />
       </div>
+      
+      <div class="form-step-controls">
+        <button type="button" class="btn btn-primary btn-next-step" id="btn-form-next">
+          Siguiente paso &rarr;
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- Tarjeta B: Detalles & Envío -->
-  <div class="form-card-part glass-panel highlighted-form-card">
-    <div class="card-badge action-badge">Paso 2</div>
+  <!-- Tarjeta B: Detalles & Envío (Paso 2) -->
+  <div class="form-card-part glass-panel highlighted-form-card" id="form-step-2" style="display: none;">
+    <div class="card-badge action-badge">Paso 2 de 2</div>
     <h3 class="card-title-form">Detalles de tu Negocio</h3>
     <div class="form-card-content">
       <div class="form-group">
@@ -55,9 +61,14 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
         ⚠️ <strong>Cupo limitado:</strong> Luis realiza un máximo de 5 auditorías personalizadas en video por semana para garantizar calidad de nivel senior.
       </p>
 
-      <button type="submit" class="btn btn-primary btn-submit">
-        Pedir mi auditoría gratis &rarr;
-      </button>
+      <div class="form-step-controls dual-controls">
+        <button type="button" class="btn btn-secondary btn-prev-step" id="btn-form-prev">
+          &larr; Volver
+        </button>
+        <button type="submit" class="btn btn-primary btn-submit">
+          Pedir auditoría &rarr;
+        </button>
+      </div>
 
       <p class="form-security-note">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
@@ -78,13 +89,18 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
   }
 
   .form-card-part {
-    display: flex;
+    display: none;
     flex-direction: column;
     padding: 2.25rem 1.75rem;
     border-radius: 12px;
     position: relative;
     width: 100%;
     transition: transform var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  /* Mostrar la tarjeta activa en flex */
+  .form-card-part#form-step-1 {
+    display: flex;
   }
 
   .form-card-part:hover {
@@ -184,10 +200,30 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
     margin: 0.15rem 0;
   }
 
+  .form-step-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .dual-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .btn-next-step, .btn-prev-step {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
   .btn-submit {
-    width: 100%;
-    margin-top: 0.25rem;
-    padding: 0.75rem;
+    flex-grow: 1;
+    margin-top: 0;
+    padding: 0.65rem;
     font-size: 0.9rem;
     font-weight: 700;
   }
@@ -208,3 +244,45 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
     color: var(--color-text-muted);
   }
 </style>
+
+<script>
+  const formStep1 = document.getElementById('form-step-1');
+  const formStep2 = document.getElementById('form-step-2');
+  const btnFormNext = document.getElementById('btn-form-next');
+  const btnFormPrev = document.getElementById('btn-form-prev');
+  
+  // Campos del formulario a validar
+  const inputName = document.getElementById('client-name') as HTMLInputElement;
+  const inputEmail = document.getElementById('client-email') as HTMLInputElement;
+  const inputWebsite = document.getElementById('client-website') as HTMLInputElement;
+
+  if (btnFormNext && formStep1 && formStep2) {
+    btnFormNext.addEventListener('click', () => {
+      // Validar inputs nativamente
+      const isNameValid = inputName.checkValidity();
+      const isEmailValid = inputEmail.checkValidity();
+      const isWebsiteValid = inputWebsite.checkValidity();
+
+      if (isNameValid && isEmailValid && isWebsiteValid) {
+        // Ocultar paso 1 y mostrar paso 2 con animación
+        formStep1.style.display = 'none';
+        formStep2.style.display = 'flex';
+        formStep2.style.animation = 'fadeIn var(--transition-fast) ease-out';
+      } else {
+        // Reportar los errores de validación de forma nativa en el navegador
+        if (!isNameValid) inputName.reportValidity();
+        else if (!isEmailValid) inputEmail.reportValidity();
+        else if (!isWebsiteValid) inputWebsite.reportValidity();
+      }
+    });
+  }
+
+  if (btnFormPrev && formStep1 && formStep2) {
+    btnFormPrev.addEventListener('click', () => {
+      // Volver al paso 1
+      formStep2.style.display = 'none';
+      formStep1.style.display = 'flex';
+      formStep1.style.animation = 'fadeIn var(--transition-fast) ease-out';
+    });
+  }
+</script>
