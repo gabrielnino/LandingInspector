@@ -110,36 +110,56 @@
 
       <!-- Pantalla de Resultados Parciales -->
       <div class="audit-results" id="audit-results-screen" style="display: none;">
-        <div class="results-layout">
-          <div class="results-stats">
-            <h3 class="results-headline">Diagnóstico Preliminar</h3>
-            
-            <div class="metric-block">
-              <span class="metric-label">Riesgo Estimado de Fuga de Prospectos</span>
-              <div class="metric-bar-container">
-                <div class="metric-bar-fill alert-color" id="fuga-fill" style="width: 0%;"></div>
-              </div>
-              <span class="metric-value alert-color" id="fuga-value">0%</span>
-            </div>
-
-            <div class="metric-block">
-              <span class="metric-label">Salud de Conversión Web</span>
-              <div class="metric-bar-container">
-                <div class="metric-bar-fill health-color" id="health-fill" style="width: 0%;"></div>
-              </div>
-              <span class="metric-value health-color" id="health-value">0%</span>
-            </div>
-
-            <p class="diagnostic-desc" id="diagnostic-summary">
-              Procesando...
-            </p>
-          </div>
+        <div class="results-layout-three-cards">
           
-          <div class="results-unlock-box">
-            <h4 class="unlock-title">🔓 Desbloquear Diagnóstico Completo</h4>
-            <p class="unlock-subtitle">Déjame tus datos para enviarte un análisis detallado punto por punto y una recomendación accionable de regalo hecha a mano para tu negocio.</p>
-            <slot name="capture-form" />
+          <!-- Tarjeta 1: Diagnóstico Visual -->
+          <div class="result-card glass-panel">
+            <div class="card-badge">Métricas</div>
+            <h3 class="card-title-results">Diagnóstico de Salud</h3>
+            <div class="card-content-results">
+              <div class="metric-block">
+                <span class="metric-label">Salud de Conversión Web</span>
+                <div class="metric-bar-container">
+                  <div class="metric-bar-fill health-color" id="health-fill" style="width: 0%;"></div>
+                </div>
+                <span class="metric-value health-color" id="health-value">0%</span>
+              </div>
+              
+              <div class="metric-block">
+                <span class="metric-label">Riesgo Estimado de Fuga</span>
+                <div class="metric-bar-container">
+                  <div class="metric-bar-fill alert-color" id="fuga-fill" style="width: 0%;"></div>
+                </div>
+                <span class="metric-value alert-color" id="fuga-value">0%</span>
+              </div>
+            </div>
           </div>
+
+          <!-- Tarjeta 2: Análisis de Alertas -->
+          <div class="result-card glass-panel" id="analysis-card">
+            <div class="card-badge warning-badge">Análisis</div>
+            <h3 class="card-title-results">Impacto Estimado</h3>
+            <div class="card-content-results">
+              <p class="diagnostic-desc" id="diagnostic-summary">
+                Procesando...
+              </p>
+              <div class="alerts-detected-container" id="alerts-detected-box" style="display: none;">
+                <span class="alerts-label">Áreas críticas detectadas:</span>
+                <div class="alerts-tags-list" id="alerts-tags-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3: Formulario de Registro -->
+          <div class="result-card glass-panel highlighted-card">
+            <div class="card-badge action-badge">Auditoría 1-a-1</div>
+            <h3 class="card-title-results">Desbloquear Reporte</h3>
+            <p class="unlock-subtitle">Déjame tus datos para enviarte un análisis detallado punto por punto y una recomendación en video hecha a mano para tu negocio.</p>
+            <div class="card-content-results">
+              <slot name="capture-form" />
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -359,23 +379,107 @@
     animation: fadeIn var(--transition-fast) ease-out;
   }
 
-  .results-layout {
+  .results-layout-three-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.75rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    align-items: stretch;
   }
 
-  .results-stats {
+  .result-card {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    padding: 2.25rem 1.75rem;
+    border-radius: 12px;
+    height: 100%;
+    position: relative;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
   }
 
-  .results-headline {
-    font-size: 1.5rem;
+  .result-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent-primary);
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background-color: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  .warning-badge {
+    border-color: rgba(245, 165, 36, 0.3);
+    color: var(--color-accent-primary);
+    background-color: rgba(245, 165, 36, 0.05);
+  }
+
+  .action-badge {
+    border-color: rgba(46, 196, 182, 0.3);
+    color: #2ec4b6;
+    background-color: rgba(46, 196, 182, 0.05);
+  }
+
+  .card-title-results {
+    font-size: 1.25rem;
     font-family: var(--font-title);
-    border-bottom: 2px solid var(--color-border);
-    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  .card-content-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .highlighted-card {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 8px 30px rgba(245, 165, 36, 0.08);
+  }
+
+  .alerts-detected-container {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--color-border);
+  }
+
+  .alerts-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .alerts-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .alert-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(245, 84, 84, 0.08);
+    color: var(--color-accent-secondary);
+    border: 1px solid rgba(245, 84, 84, 0.15);
   }
 
   .metric-block {
@@ -434,26 +538,11 @@
     line-height: 1.5;
   }
 
-  .results-unlock-box {
-    padding: 1.5rem;
-    background-color: var(--color-bg-tertiary);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .unlock-title {
-    font-size: 1.15rem;
-    font-family: var(--font-title);
-    color: var(--color-text-primary);
-  }
-
   .unlock-subtitle {
     font-size: 0.85rem;
     color: var(--color-text-secondary);
-    line-height: 1.4;
+    line-height: 1.45;
+    margin-bottom: 1rem;
   }
 
   @keyframes spin {
@@ -466,10 +555,10 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @media (max-width: 768px) {
-    .results-layout {
+  @media (max-width: 992px) {
+    .results-layout-three-cards {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.5rem;
     }
     .wizard-footer {
       flex-direction: column-reverse;
@@ -587,6 +676,16 @@
     if (wizardBody) wizardBody.style.display = 'none';
     if (progressBar) progressBar.style.display = 'none';
 
+    // Remover fondo, bordes y paddings del contenedor padre del wizard
+    const auditWizard = document.getElementById('audit-wizard');
+    if (auditWizard) {
+      auditWizard.style.background = 'transparent';
+      auditWizard.style.border = 'none';
+      auditWizard.style.boxShadow = 'none';
+      auditWizard.style.padding = '0';
+      auditWizard.style.maxWidth = '1100px';
+    }
+
     // Mostrar pantalla de carga
     if (loadingScreen) loadingScreen.style.display = 'flex';
 
@@ -643,6 +742,24 @@
     }
 
     if (diagnosticSummary) diagnosticSummary.textContent = summary;
+
+    // Inyectar tags de alertas detectadas en la tarjeta central de Análisis
+    const alertsTagsList = document.getElementById('alerts-tags-list');
+    const alertsDetectedBox = document.getElementById('alerts-detected-box');
+    if (alertsTagsList && alertsDetectedBox) {
+      alertsTagsList.innerHTML = '';
+      if (alertList.length > 0) {
+        alertsDetectedBox.style.display = 'block';
+        alertList.forEach(alertCategory => {
+          const tag = document.createElement('span');
+          tag.className = 'alert-tag';
+          tag.textContent = alertCategory.replace(' (Inseguro)', '');
+          alertsTagsList.appendChild(tag);
+        });
+      } else {
+        alertsDetectedBox.style.display = 'none';
+      }
+    }
 
     // Sincronizar con el formulario oculto de Web3Forms
     if (formScoreSalud) formScoreSalud.value = `${healthScore}%`;
