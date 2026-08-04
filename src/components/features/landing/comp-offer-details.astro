@@ -12,28 +12,36 @@
     <div class="offer-grid">
       <!-- Qué recibes -->
       <div class="offer-info">
-        <h2 class="offer-title">¿Qué recibes en tu Diagnóstico Gratuito?</h2>
-        <p class="offer-subtitle">No te enviaré un reporte automático de PDF generado por un robot. Recibirás un diagnóstico real de tu negocio hecho a mano por mí.</p>
+        <div class="offer-badge">
+          <span class="offer-badge-icon">✦</span>
+          <span class="offer-badge-text">100% GRATIS</span>
+        </div>
+        
+        <h2 class="offer-title">¿Qué recibes en tu Diagnóstico <span class="highlight-title">Gratuito?</span></h2>
+        <p class="offer-subtitle">No te enviaré un reporte automático de PDF generado por un robot. Recibirás un diagnóstico real de tu negocio <span class="highlight-offer-sub">hecho a mano por mí.</span></p>
         
         <div class="perks-list">
-          <div class="perk-card glass-panel">
-            <div class="perk-icon">🔍</div>
+          <!-- perk 1 (Lupa azul) -->
+          <div class="perk-card glass-panel perk-blue">
+            <div class="perk-icon-box box-blue">🔍</div>
             <div class="perk-content">
               <h3 class="perk-title">Diagnóstico punto por punto</h3>
               <p class="perk-desc">Analizo tu marca, el copy de tu web, la UX móvil y la velocidad técnica, y te digo exactamente qué está frenando tus ventas.</p>
             </div>
           </div>
 
-          <div class="perk-card glass-panel">
-            <div class="perk-icon">🎯</div>
+          <!-- perk 2 (Diana rosa) -->
+          <div class="perk-card glass-panel perk-pink">
+            <div class="perk-icon-box box-pink">🎯</div>
             <div class="perk-content">
-              <h3 class="perk-title">Prioridades de Acción Claros</h3>
+              <h3 class="perk-title">Prioridades de Acción Claras</h3>
               <p class="perk-desc">Qué debes arreglar primero para tener el mayor impacto en tus ventas, sin gastar de más en agencias ni perder tiempo.</p>
             </div>
           </div>
 
-          <div class="perk-card glass-panel">
-            <div class="perk-icon">🎁</div>
+          <!-- perk 3 (Regalo amarillo) -->
+          <div class="perk-card glass-panel perk-yellow">
+            <div class="perk-icon-box box-yellow">🎁</div>
             <div class="perk-content">
               <h3 class="perk-title">Una Mejora de Regalo</h3>
               <p class="perk-desc">Te dejaré una recomendación técnica/copy lista para aplicar hoy mismo por ti mismo, decidas o no trabajar conmigo después.</p>
@@ -42,29 +50,41 @@
         </div>
       </div>
 
-      <!-- Biografía/Storytelling de Luis -->
-      <div class="bio-card glass-panel">
-        <div class="bio-avatar">
-          <img src="/assets/asset-luis-avatar.jpg" alt="Luis Niño - Senior Developer & Brand Strategist" class="bio-avatar-img" loading="lazy" decoding="async" width="110" height="110" />
+      <!-- Tarjeta del Perfil de Luis destacada -->
+      <div class="bio-card glass-panel featured-bio">
+        <!-- Patrón de puntos decorativo -->
+        <div class="bio-dots-pattern"></div>
+        
+        <div class="bio-avatar-block">
+          <div class="bio-avatar">
+            <img src="/assets/asset-luis-avatar.jpg" alt="Luis Niño - Senior Developer & Brand Strategist" class="bio-avatar-img" loading="lazy" decoding="async" width="110" height="110" />
+          </div>
+          <span class="bio-label">Tu Auditor</span>
         </div>
         
         <div class="bio-content">
-          <span class="bio-label">Tu Auditor</span>
           <h3 class="bio-name">Luis Niño</h3>
           <p class="bio-title">Senior Developer & Brand Strategist</p>
+          
           <a href="https://www.linkedin.com/in/luis-nino-developer/?locale=en" target="_blank" rel="noopener noreferrer" class="bio-linkedin-link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
-            Conectar en LinkedIn
+            <span>Conectar en LinkedIn</span>
           </a>
           
           <blockquote class="bio-quote">
-            "Programo desde los 15 años en Turbo C. Emigré a Vancouver buscando un futuro mejor, al igual que tú. Mi misión es nivelar la cancha: hoy, combinando Inteligencia Artificial con años de experiencia en desarrollo, por fin es posible entregarle al pequeño emprendedor software y marca de nivel premium a un precio accesible."
+            "Programo desde los 15 años en Turbo C. Emigré a Vancouver buscando un futuro mejor, al igual que tú. Mi misión es nivelar la cancha: <strong>hoy</strong>, combinando Inteligencia Artificial con años de experiencia en desarrollo, por fin es posible entregarle al pequeño emprendedor software y marca de nivel premium a un precio accesible."
           </blockquote>
           
-          <div class="bio-cta">
-            <a href="#audit" class="btn btn-primary btn-bio">Iniciar mi auto-auditoría</a>
+          <div class="bio-cta-block">
+            <a href="#audit" class="btn btn-primary btn-bio">Iniciar mi auto-auditoría &rarr;</a>
+            <span class="bio-lock-notice">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="11" height="11">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+              </svg>
+              Sin compromiso · 100% confidencial
+            </span>
           </div>
         </div>
       </div>
@@ -77,6 +97,11 @@
     background-color: transparent;
     transition: background-color var(--transition-slow);
     position: relative;
+    padding: 3.5rem 0 2rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .back-to-top {
@@ -93,6 +118,7 @@
     align-items: center;
     justify-content: center;
     transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    z-index: 10;
   }
 
   .back-to-top:hover {
@@ -106,87 +132,212 @@
 
   .offer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3.5rem;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 3rem;
     align-items: center;
+    width: 100%;
   }
 
   .offer-info {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.85rem;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Badge 100% gratis */
+  .offer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    background-color: rgba(24, 24, 27, 0.45);
+    border: 1px solid rgba(245, 165, 36, 0.3);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 0.25rem;
+    width: max-content;
+  }
+
+  html[data-theme="brand"] .offer-badge {
+    background-color: rgba(27, 42, 86, 0.05);
+    border: 1px solid rgba(27, 42, 86, 0.15);
+  }
+
+  .offer-badge-text {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--color-accent-primary);
+    letter-spacing: 0.05em;
+    line-height: 1;
   }
 
   .offer-title {
-    font-size: 2.25rem;
+    font-size: 2.15rem;
     font-family: var(--font-title);
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+  }
+
+  .highlight-title {
+    color: var(--color-accent-primary);
   }
 
   .offer-subtitle {
     color: var(--color-text-secondary);
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     line-height: 1.5;
+  }
+
+  .highlight-offer-sub {
+    color: var(--color-accent-primary);
+    font-weight: 700;
   }
 
   .perks-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 0.5rem;
   }
 
+  /* Tarjetas Perks a la izquierda */
   .perk-card {
     display: flex;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
     align-items: flex-start;
+    border-left: 4px solid transparent;
+    border-radius: 12px;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
   }
 
-  .perk-icon {
-    font-size: 2rem;
+  .perk-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .perk-card.perk-blue {
+    border-left-color: #00b4d8;
+  }
+
+  .perk-card.perk-pink {
+    border-left-color: #ff007f;
+  }
+
+  .perk-card.perk-yellow {
+    border-left-color: var(--color-accent-primary);
+  }
+
+  .perk-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
     line-height: 1;
+  }
+
+  .perk-icon-box.box-blue {
+    background-color: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.25);
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.12);
+  }
+
+  .perk-icon-box.box-pink {
+    background-color: rgba(255, 0, 127, 0.1);
+    border: 1px solid rgba(255, 0, 127, 0.25);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.12);
+  }
+
+  .perk-icon-box.box-yellow {
+    background-color: rgba(245, 165, 36, 0.1);
+    border: 1px solid rgba(245, 165, 36, 0.25);
+    box-shadow: 0 0 15px rgba(245, 165, 36, 0.12);
   }
 
   .perk-content {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    text-align: left;
+    gap: 0.15rem;
   }
 
   .perk-title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-family: var(--font-title);
     color: var(--color-text-primary);
+    font-weight: 700;
   }
 
   .perk-desc {
-    font-size: 0.9rem;
+    font-size: 0.825rem;
     color: var(--color-text-secondary);
     line-height: 1.45;
   }
 
-  /* Tarjeta de Biografía */
+  /* Tarjeta de Biografía Destacada a la derecha */
   .bio-card {
-    padding: 2.5rem;
+    padding: 2.25rem 1.75rem 1.75rem 1.75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
     position: relative;
+    border-radius: 16px;
+  }
+
+  .featured-bio {
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: 0 0 30px rgba(245, 165, 36, 0.12);
+  }
+
+  html[data-theme="brand"] .featured-bio {
+    border: 1.5px solid var(--color-accent-primary); /* Borde azul oscuro en modo claro */
+    box-shadow: 0 10px 30px rgba(27, 42, 86, 0.06);
+  }
+
+  .bio-dots-pattern {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(var(--color-accent-primary) 1.2px, transparent 1.2px);
+    background-size: 10px 10px;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  .bio-avatar-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
   }
 
   .bio-avatar {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
     background-color: var(--color-bg-primary);
-    border: 3px solid var(--color-accent-primary);
+    border: 3.5px solid var(--color-accent-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px rgba(252, 209, 22, 0.2);
+    box-shadow: 0 0 20px rgba(245, 165, 36, 0.25);
+    position: relative;
+  }
+
+  html[data-theme="brand"] .bio-avatar {
+    box-shadow: 0 0 20px rgba(27, 42, 86, 0.15);
   }
 
   .bio-avatar-img {
@@ -200,12 +351,12 @@
   .bio-content {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
     width: 100%;
   }
 
   .bio-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--color-accent-primary);
@@ -213,28 +364,18 @@
   }
 
   .bio-name {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-family: var(--font-title);
-    margin-bottom: 0.15rem;
+    color: var(--color-text-primary);
+    font-weight: 800;
+    margin-bottom: 0.1rem;
   }
 
   .bio-title {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-muted);
     font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .bio-quote {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-    padding: 1.25rem 0;
-    margin-bottom: 1.25rem;
-    text-align: justify;
+    margin-bottom: 0.5rem;
   }
 
   .bio-linkedin-link {
@@ -242,11 +383,11 @@
     align-items: center;
     justify-content: center;
     gap: 0.35rem;
-    font-size: 0.8rem;
+    font-size: 0.775rem;
     color: var(--color-text-secondary);
     border: 1px solid var(--color-border);
-    padding: 0.35rem 0.75rem;
-    border-radius: 4px;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
     margin: 0 auto 0.5rem auto;
     width: fit-content;
     font-weight: 500;
@@ -259,14 +400,49 @@
     color: var(--color-text-primary);
   }
 
-  .btn-bio {
+  .bio-quote {
+    font-size: 0.775rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.85rem 0;
+    margin-bottom: 0.85rem;
+    text-align: justify;
+  }
+
+  .bio-cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
     width: 100%;
   }
 
+  .btn-bio {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
+  }
+
+  .bio-lock-notice {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
   @media (max-width: 992px) {
+    .offer-details-section {
+      padding: 3rem 0 1.5rem 0;
+    }
     .offer-grid {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
   }
 
