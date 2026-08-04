@@ -147,3 +147,67 @@ button, input, textarea, select {
     transform: none;
   }
 }
+
+/* --- Barra de Características Global --- */
+.hero-features-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.75rem 2.25rem;
+  border-radius: 16px;
+  background-color: rgba(24, 24, 27, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+html[data-theme="brand"] .hero-features-bar {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid var(--color-accent-primary);
+  box-shadow: 0 10px 30px rgba(27, 42, 86, 0.08);
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.feature-icon-box {
+  font-size: 1.5rem;
+  line-height: 1;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast);
+}
+
+html[data-theme="brand"] .feature-icon-box {
+  background-color: rgba(27, 42, 86, 0.03);
+  border: 1px solid rgba(27, 42, 86, 0.05);
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.feature-title {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.feature-desc {
+  font-size: 0.775rem;
+  color: var(--color-text-secondary);
+  line-height: 1.35;
+}

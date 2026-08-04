@@ -376,9 +376,9 @@
   }
 
   :global([data-theme="brand"]) .tablet-mockup {
-    background-color: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(27, 42, 86, 0.1);
-    box-shadow: -20px 20px 40px rgba(27, 42, 86, 0.08);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: -20px 20px 40px rgba(27, 42, 86, 0.1);
   }
 
   .tablet-header {
@@ -603,9 +603,9 @@
   }
 
   :global([data-theme="brand"]) .opportunities-card {
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(27, 42, 86, 0.08);
-    box-shadow: -10px 15px 30px rgba(27, 42, 86, 0.06);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: -10px 15px 30px rgba(27, 42, 86, 0.1);
   }
 
   .opt-icon {
@@ -658,9 +658,9 @@
   }
 
   :global([data-theme="brand"]) .chart-line-card {
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(27, 42, 86, 0.08);
-    box-shadow: -10px 15px 30px rgba(27, 42, 86, 0.06);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: -10px 15px 30px rgba(27, 42, 86, 0.1);
   }
 
   .chart-title {
@@ -697,9 +697,9 @@
   }
 
   :global([data-theme="brand"]) .chart-bar-card {
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(27, 42, 86, 0.08);
-    box-shadow: -10px 15px 30px rgba(27, 42, 86, 0.06);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: -10px 15px 30px rgba(27, 42, 86, 0.1);
   }
 
   .chart-bars-container {
@@ -760,67 +760,7 @@
     50% { transform: rotateY(-22deg) rotateX(16deg) rotateZ(5deg) translateZ(35px) translateY(-7px); }
   }
 
-  /* --- Barra de Características Inferior --- */
-  .hero-features-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    width: 100%;
-    margin-top: 5rem;
-    padding: 1.75rem 2.25rem;
-    border-radius: 16px;
-    background-color: rgba(24, 24, 27, 0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
 
-  :global([data-theme="brand"]) .hero-features-bar {
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(27, 42, 86, 0.08);
-    box-shadow: 0 10px 30px rgba(27, 42, 86, 0.04);
-  }
-
-  .feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .feature-icon-box {
-    font-size: 1.5rem;
-    line-height: 1;
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  :global([data-theme="brand"]) .feature-icon-box {
-    background-color: rgba(27, 42, 86, 0.03);
-    border: 1px solid rgba(27, 42, 86, 0.05);
-  }
-
-  .feature-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .feature-title {
-    font-size: 0.9rem;
-    color: var(--color-text-primary);
-    font-weight: 700;
-  }
-
-  .feature-desc {
-    font-size: 0.775rem;
-    color: var(--color-text-secondary);
-    line-height: 1.35;
-  }
 
   /* --- Keyframes & Media Queries --- */
   @keyframes pulse {

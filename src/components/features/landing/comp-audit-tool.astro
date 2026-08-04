@@ -2,6 +2,12 @@
 // src/components/features/landing/comp-audit-tool.astro
 ---
 <section id="audit" class="snap-section audit-section">
+  <!-- Patrón de puntos de fondo decorativo -->
+  <div class="dots-pattern left"></div>
+  <div class="dots-pattern right"></div>
+  <!-- Brillo cálido de fondo detrás de la tarjeta -->
+  <div class="audit-glow"></div>
+
   <a href="#top" class="back-to-top" aria-label="Volver al inicio" title="Volver al inicio">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m18 15-6-6-6 6"></path>
@@ -10,95 +16,321 @@
 
   <div class="container audit-container">
     <div class="section-header text-center">
-      <h2 class="section-title">Auto-Auditoría de Conversión</h2>
+      <!-- Insignia superior -->
+      <div class="audit-badge">
+        <span class="audit-badge-icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </svg>
+        </span>
+        <span class="audit-badge-text">AUDITORÍA 100% GRATIS</span>
+      </div>
+      
+      <h2 class="section-title">Auto-Auditoría de <span class="italic-title">Conversión</span></h2>
       <p class="section-subtitle">Descubre el estado de tu negocio digital en 12 preguntas interactivas.</p>
     </div>
 
     <!-- Wizard de Auto-Auditoría -->
     <div class="audit-card glass-panel" id="audit-wizard">
-      <!-- Barra de progreso -->
-      <div class="wizard-progress-bar">
-        <div class="progress-fill" id="progress-indicator" style="width: 8.33%;"></div>
-      </div>
       
-      <div class="wizard-header">
-        <span class="step-counter" id="step-counter">Pregunta 1 de 12</span>
-        <span class="category-badge" id="category-badge">Claridad</span>
+      <!-- Contenedor superior del progreso y la categoría -->
+      <div class="wizard-header-row">
+        <!-- Barra de progreso e indicador de pregunta -->
+        <div class="wizard-progress-block">
+          <div class="wizard-progress-bar">
+            <div class="progress-fill" id="progress-indicator" style="width: 8.33%;"></div>
+          </div>
+          <span class="step-counter" id="step-counter">Pregunta 1 de 12</span>
+        </div>
+        
+        <!-- Badge de Categoría con Icono de Mira -->
+        <span class="category-badge" id="category-badge">
+          <svg class="crosshair-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="22" y1="12" x2="18" y2="12" />
+            <line x1="6" y1="12" x2="2" y2="12" />
+            <line x1="12" y1="6" x2="12" y2="2" />
+            <line x1="12" y1="22" x2="12" y2="18" />
+          </svg>
+          <span id="category-text">Claridad</span>
+        </span>
       </div>
 
       <!-- Preguntas del Wizard -->
       <div class="wizard-body">
         <div class="slide-container" id="slides-wrapper">
-          <!-- Slide 1 -->
+          
+          <!-- Slide 1: Claridad -->
           <div class="audit-slide active" data-index="1" data-category="Claridad">
-            <h3 class="question-text">¿Tus visitas entienden claramente qué vendes y a quién ayudas en los primeros 5 segundos de entrar a tu web?</h3>
-            <p class="question-desc">Una propuesta de valor confusa es la causa número uno de rebote inmediato.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                    <polyline points="16 11 18 13 22 9" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tus visitas entienden claramente qué vendes y a quién ayudas en los primeros <span class="highlight-q-text">5 segundos</span> de entrar a tu web?</h3>
+                <p class="question-desc">Una propuesta de valor confusa es la causa número uno de rebote inmediato.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 2 -->
+          
+          <!-- Slide 2: Confianza -->
           <div class="audit-slide" data-index="2" data-category="Confianza">
-            <h3 class="question-text">¿Tu sitio muestra testimonios creíbles de clientes reales, con nombres, fotos o enlaces verificables?</h3>
-            <p class="question-desc">Sin pruebas sociales reales, las visitas perciben tu sitio como genérico o inseguro.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 11l2 2 4-4" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tu sitio muestra <span class="highlight-q-text">testimonios creíbles</span> de clientes reales, con nombres, fotos o enlaces verificables?</h3>
+                <p class="question-desc">Sin pruebas sociales reales, las visitas perciben tu sitio como genérico o inseguro.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 3 -->
+          
+          <!-- Slide 3: Conversión -->
           <div class="audit-slide" data-index="3" data-category="Conversión">
-            <h3 class="question-text">¿Tus llamadas a la acción (CTAs) son claras, visibles y orientadas al beneficio (ej: "Pedir diagnóstico gratis" en vez de "Enviar")?</h3>
-            <p class="question-desc">Botones apagados o confusos reducen la tasa de clics a menos de la mitad.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tus <span class="highlight-q-text">llamadas a la acción (CTAs)</span> son claras, visibles y orientadas al beneficio directo del cliente?</h3>
+                <p class="question-desc">Botones apagados o confusos reducen la tasa de clics a menos de la mitad.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 4 -->
+          
+          <!-- Slide 4: Diseño -->
           <div class="audit-slide" data-index="4" data-category="Diseño">
-            <h3 class="question-text">¿El logotipo y el diseño visual de tu marca se ven profesionales, consistentes y adaptados a tu industria?</h3>
-            <p class="question-desc">Un logotipo amateur hecho con plantillas de $5 resta autoridad frente a competidores establecidos.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
+                    <path d="M12 6V12L16 14" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿El <span class="highlight-q-text">logotipo y el diseño visual</span> de tu marca se ven profesionales, consistentes y adaptados a tu sector?</h3>
+                <p class="question-desc">Un diseño amateur resta autoridad frente a competidores establecidos en el mercado.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 5 -->
+          
+          <!-- Slide 5: Técnico -->
           <div class="audit-slide" data-index="5" data-category="Técnico">
-            <h3 class="question-text">¿Tu sitio web se carga completamente en menos de 3 segundos en cualquier conexión estándar?</h3>
-            <p class="question-desc">El 53% de los usuarios móviles abandona una página si esta tarda más de 3 segundos en cargar.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tu sitio web se carga completamente en <span class="highlight-q-text">menos de 3 segundos</span> en cualquier conexión móvil estándar?</h3>
+                <p class="question-desc">El 53% de los usuarios abandona una página si esta tarda más de 3 segundos en cargar.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 6 -->
+          
+          <!-- Slide 6: Móvil -->
           <div class="audit-slide" data-index="6" data-category="Móvil">
-            <h3 class="question-text">¿Tu página se visualiza perfectamente en teléfonos celulares sin textos superpuestos o scrolls horizontales incómodos?</h3>
-            <p class="question-desc">Más del 60% de tus clientes potenciales te buscarán desde sus dispositivos móviles.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tu página se visualiza perfectamente en <span class="highlight-q-text">teléfonos celulares</span> sin textos superpuestos o scrolls horizontales?</h3>
+                <p class="question-desc">Más del 60% de tus clientes potenciales te buscarán desde sus dispositivos móviles.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 7 -->
+          
+          <!-- Slide 7: Captura -->
           <div class="audit-slide" data-index="7" data-category="Captura">
-            <h3 class="question-text">¿Tus formularios de contacto son cortos y rápidos de llenar, pidiendo únicamente la información esencial?</h3>
-            <p class="question-desc">Formularios con más de 4 campos innecesarios ahuyentan a posibles leads interesados.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tus <span class="highlight-q-text">formularios de contacto</span> son cortos, directos y rápidos de llenar para la visita?</h3>
+                <p class="question-desc">Formularios con más de 4 campos innecesarios ahuyentan a leads altamente interesados.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 8 -->
+          
+          <!-- Slide 8: Copywriting -->
           <div class="audit-slide" data-index="8" data-category="Copywriting">
-            <h3 class="question-text">¿Los textos de tu web se enfocan en resolver los dolores de tu cliente en lugar de hablar solo de tus logros (egocentrismo)?</h3>
-            <p class="question-desc">El cliente compra soluciones a sus propios problemas, no tu historia corporativa.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <path d="M12 20h9" />
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Los textos de tu web se enfocan en <span class="highlight-q-text">resolver los dolores</span> de tu cliente en lugar de hablar solo de ti?</h3>
+                <p class="question-desc">El cliente compra soluciones a sus propios problemas, no tu historia corporativa.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 9 -->
+          
+          <!-- Slide 9: SEO -->
           <div class="audit-slide" data-index="9" data-category="SEO">
-            <h3 class="question-text">¿Aparece tu negocio en la primera página de Google o en Google Maps cuando tus clientes buscan tu servicio en tu ciudad?</h3>
-            <p class="question-desc">Si no estás en la primera página de resultados, eres prácticamente invisible orgánicamente.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Aparece tu negocio en la <span class="highlight-q-text">primera página de Google</span> al buscar tu servicio específico en tu ciudad?</h3>
+                <p class="question-desc">Si no estás en la primera página de resultados locales, eres invisible orgánicamente.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 10 -->
+          
+          <!-- Slide 10: Seguridad -->
           <div class="audit-slide" data-index="10" data-category="Seguridad">
-            <h3 class="question-text">¿Tu web cuenta con protocolo HTTPS activo (el candado de seguridad en la barra de direcciones)?</h3>
-            <p class="question-desc">Los navegadores advierten activamente a los usuarios de "Sitio no seguro", destruyendo la confianza.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Cuenta tu web con un <span class="highlight-q-text">candado de seguridad</span> activo (HTTPS) en la barra del navegador?</h3>
+                <p class="question-desc">Los navegadores advierten activamente a los usuarios de "Sitio no seguro", rompiendo la confianza.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 11 -->
+          
+          <!-- Slide 11: Contacto -->
           <div class="audit-slide" data-index="11" data-category="Contacto">
-            <h3 class="question-text">¿Tiene tu sitio botones de acceso rápido y directo a un chat instantáneo de WhatsApp o llamada telefónica?</h3>
-            <p class="question-desc">Facilitar el contacto directo y veloz incrementa las consultas un 35% en pequeños negocios.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tiene tu sitio accesos directos a un <span class="highlight-q-text">chat instantáneo de WhatsApp</span> o llamada inmediata?</h3>
+                <p class="question-desc">Facilitar el contacto directo y veloz incrementa las consultas un 35% en pequeños negocios.</p>
+              </div>
+            </div>
           </div>
-          <!-- Slide 12 -->
+          
+          <!-- Slide 12: Métricas -->
           <div class="audit-slide" data-index="12" data-category="Métricas">
-            <h3 class="question-text">¿Tienes instaladas herramientas de analítica y píxeles (Meta/Google Analytics) para registrar de dónde vienen tus visitas?</h3>
-            <p class="question-desc">Sin analíticas correctas, estás tomando decisiones a ciegas en tu negocio digital.</p>
+            <div class="slide-question-content">
+              <div class="question-avatar-box">
+                <div class="question-avatar-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                  </svg>
+                </div>
+              </div>
+              <div class="question-texts-box">
+                <h3 class="question-text">¿Tienes instaladas <span class="highlight-q-text">herramientas de analítica</span> para medir de dónde vienen y qué hacen tus visitas?</h3>
+                <p class="question-desc">Sin analíticas correctas, estás tomando decisiones de marketing digital a ciegas.</p>
+              </div>
+            </div>
           </div>
+          
         </div>
       </div>
 
       <!-- Botones de Acción de Preguntas -->
       <div class="wizard-footer" id="wizard-controls">
+        <!-- Botón Volver -->
         <button class="btn btn-secondary btn-nav-back" id="btn-back" disabled>&larr; Anterior</button>
+        
+        <!-- Opciones de Selección de Escala (SaaS Premium) -->
         <div class="option-buttons">
-          <button class="btn btn-secondary btn-option" data-value="si">Sí, funciona bien</button>
-          <button class="btn btn-primary btn-option" data-value="no">No, tengo problemas</button>
-          <button class="btn btn-secondary btn-option btn-neutral" data-value="neutral">No sé / A medias</button>
+          
+          <button class="btn btn-option-custom si btn-option" data-value="si">
+            <span class="option-icon-circle green">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <div class="option-text-group">
+              <span class="option-title">Sí, funciona bien</span>
+              <span class="option-subtitle">Mi mensaje es claro</span>
+            </div>
+          </button>
+
+          <button class="btn btn-option-custom no btn-option highlighted-option" data-value="no">
+            <span class="option-icon-circle orange">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+            </span>
+            <div class="option-text-group">
+              <span class="option-title">No, tengo problemas</span>
+              <span class="option-subtitle">Necesito mejorarlo</span>
+            </div>
+          </button>
+
+          <button class="btn btn-option-custom neutral btn-option" data-value="neutral">
+            <span class="option-icon-circle gray">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            </span>
+            <div class="option-text-group">
+              <span class="option-title">No sé / A medias</span>
+              <span class="option-subtitle">No estoy seguro</span>
+            </div>
+          </button>
+
         </div>
       </div>
 
@@ -161,14 +393,87 @@
         </div>
       </div>
     </div>
+
+    <!-- Barra de Características Inferior -->
+    <div class="hero-features-bar glass-panel" id="audit-features-bar">
+      <div class="feature-item">
+        <div class="feature-icon-box">⚡</div>
+        <div class="feature-text">
+          <strong class="feature-title">Rápido y sencillo</strong>
+          <span class="feature-desc">Completa en solo 2 minutos y obtén tu diagnóstico.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-box">🎯</div>
+        <div class="feature-text">
+          <strong class="feature-title">Resultados inmediatos</strong>
+          <span class="feature-desc">Recibe un análisis personalizado al finalizar.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-box">🛡️</div>
+        <div class="feature-text">
+          <strong class="feature-title">100% Gratis</strong>
+          <span class="feature-desc">Sin tarjetas, sin trampas. Solo valor real.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-box">👥</div>
+        <div class="feature-text">
+          <strong class="feature-title">Hecho para emprendedores</strong>
+          <span class="feature-desc">Entendemos tu negocio, hablamos tu idioma.</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   .audit-section {
-    background-color: var(--color-bg-secondary);
+    background-color: transparent;
     transition: background-color var(--transition-slow);
     position: relative;
+    padding: 6rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Patrón de puntos de fondo decorativo */
+  .dots-pattern {
+    position: absolute;
+    top: 10%;
+    width: 250px;
+    height: 80%;
+    background-image: radial-gradient(rgba(245, 165, 36, 0.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dots-pattern.left {
+    left: 2rem;
+  }
+
+  .dots-pattern.right {
+    right: 2rem;
+  }
+
+  /* Brillo cálido detrás de la tarjeta */
+  .audit-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(245, 165, 36, 0.05) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: -1;
   }
 
   .back-to-top {
@@ -196,83 +501,179 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: 3rem;
     width: 100%;
   }
 
   .section-header {
-    max-width: 600px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Insignia del título */
+  .audit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background-color: rgba(24, 24, 27, 0.4);
+    border: 1px solid rgba(245, 165, 36, 0.3);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+  }
+
+  :global([data-theme="brand"]) .audit-badge {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(27, 42, 86, 0.2);
+  }
+
+  .audit-badge-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent-primary);
+    color: #121214;
+    border-radius: 50%;
+    padding: 0.25rem;
+  }
+
+  :global([data-theme="brand"]) .audit-badge-icon-box {
+    color: #f4f1e6;
+  }
+
+  .audit-badge-text {
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: var(--color-accent-primary);
+    letter-spacing: 0.05em;
+  }
+
+  :global([data-theme="brand"]) .audit-badge-text {
+    color: var(--color-text-primary);
   }
 
   .section-title {
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .italic-title {
+    font-style: italic;
+    color: var(--color-accent-primary);
   }
 
   .section-subtitle {
     color: var(--color-text-secondary);
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
+  /* Tarjeta del Wizard */
   .audit-card {
     width: 100%;
     max-width: 900px;
-    min-height: 400px;
-    padding: 1.75rem 2.25rem;
+    min-height: 440px;
+    padding: 2.5rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    background-color: rgba(20, 20, 24, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  :global([data-theme="brand"]) .audit-card {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(27, 42, 86, 0.1);
+    box-shadow: 0 20px 50px rgba(27, 42, 86, 0.05);
+  }
+
+  /* Fila superior de cabecera */
+  .wizard-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 1.25rem;
+    gap: 1.5rem;
+  }
+
+  :global([data-theme="brand"]) .wizard-header-row {
+    border-bottom: 1px solid rgba(27, 42, 86, 0.06);
+  }
+
+  .wizard-progress-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex-grow: 1;
+    max-width: 450px;
   }
 
   .wizard-progress-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 6px;
-    background-color: var(--color-border);
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  :global([data-theme="brand"]) .wizard-progress-bar {
+    background-color: rgba(27, 42, 86, 0.06);
   }
 
   .progress-fill {
     height: 100%;
     background-color: var(--color-accent-primary);
+    border-radius: 3px;
     transition: width var(--transition-fast) ease-in-out;
   }
 
-  .wizard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 1rem;
-  }
-
   .step-counter {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.775rem;
+    font-weight: 700;
     color: var(--color-text-muted);
   }
 
   .category-badge {
-    background-color: var(--color-bg-tertiary);
-    border: 1px solid var(--color-border);
-    border-radius: 50px;
-    padding: 0.25rem 0.75rem;
-    font-size: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.775rem;
     font-weight: 700;
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.02em;
   }
 
+  :global([data-theme="brand"]) .category-badge {
+    background-color: rgba(27, 42, 86, 0.02);
+    border: 1px solid rgba(27, 42, 86, 0.06);
+  }
+
+  .crosshair-icon {
+    color: var(--color-accent-primary);
+  }
+
+  /* Cuerpo del Wizard */
   .wizard-body {
     flex-grow: 1;
     display: flex;
     align-items: center;
-    min-height: 180px;
+    min-height: 170px;
     position: relative;
+    width: 100%;
   }
 
   .slide-container {
@@ -294,55 +695,174 @@
     transform: translateY(0);
   }
 
+  /* Layout Horizontal de la Pregunta */
+  .slide-question-content {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 2.25rem;
+    align-items: center;
+  }
+
+  .question-avatar-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .question-avatar-circle {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(245, 165, 36, 0.03);
+    border: 2.5px solid var(--color-accent-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent-primary);
+    box-shadow: 0 0 20px rgba(245, 165, 36, 0.12), inset 0 0 10px rgba(245, 165, 36, 0.05);
+  }
+
+  .question-texts-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+  }
+
   .question-text {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     font-family: var(--font-title);
-    margin-bottom: 1rem;
     color: var(--color-text-primary);
     line-height: 1.35;
+    font-weight: 700;
+  }
+
+  .highlight-q-text {
+    color: var(--color-accent-primary);
   }
 
   .question-desc {
     color: var(--color-text-secondary);
     font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    line-height: 1.45;
   }
 
+  /* Pie de Wizard */
   .wizard-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid var(--color-border);
-    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1.75rem;
     margin-top: 2rem;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
-  .option-buttons {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+  :global([data-theme="brand"]) .wizard-footer {
+    border-top: 1px solid rgba(27, 42, 86, 0.06);
   }
 
   .btn-nav-back {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-  }
-
-  .btn-option {
     padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
   }
 
-  .btn-neutral {
-    background-color: transparent;
-    border-color: var(--color-border);
-    color: var(--color-text-secondary);
+  /* Opciones SaaS Premium */
+  .option-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-grow: 1;
+    justify-content: flex-end;
+    flex-wrap: wrap;
   }
 
-  .btn-neutral:hover {
-    border-color: var(--color-text-muted);
-    background-color: var(--color-bg-tertiary);
+  .btn-option-custom {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background-color: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--color-text-primary);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+    text-align: left;
+    min-width: 195px;
+  }
+
+  :global([data-theme="brand"]) .btn-option-custom {
+    background-color: rgba(27, 42, 86, 0.01);
+    border: 1px solid rgba(27, 42, 86, 0.08);
+  }
+
+  .btn-option-custom:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  :global([data-theme="brand"]) .btn-option-custom:hover {
+    border-color: rgba(27, 42, 86, 0.15);
+    background-color: rgba(27, 42, 86, 0.03);
+  }
+
+  /* Estado Seleccionado Naranja */
+  .btn-option-custom.highlighted-option {
+    border-color: var(--color-accent-primary);
+    background-color: rgba(245, 165, 36, 0.04);
+    box-shadow: 0 4px 15px rgba(245, 165, 36, 0.08);
+  }
+
+  .option-icon-circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .option-icon-circle.green {
+    background-color: rgba(46, 196, 182, 0.12);
+    color: #2ec4b6;
+    border: 1px solid rgba(46, 196, 182, 0.2);
+  }
+
+  .option-icon-circle.orange {
+    background-color: rgba(245, 165, 36, 0.12);
+    color: var(--color-accent-primary);
+    border: 1px solid rgba(245, 165, 36, 0.2);
+  }
+
+  .option-icon-circle.gray {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  :global([data-theme="brand"]) .option-icon-circle.gray {
+    background-color: rgba(27, 42, 86, 0.05);
+    border: 1px solid rgba(27, 42, 86, 0.1);
+  }
+
+  .option-text-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+
+  .option-title {
+    font-size: 0.825rem;
+    font-weight: 700;
+  }
+
+  .option-subtitle {
+    font-size: 0.675rem;
+    color: var(--color-text-muted);
   }
 
   /* Pantalla de Carga */
@@ -551,6 +1071,12 @@
     margin-bottom: 1rem;
   }
 
+  #audit-features-bar {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 1rem;
+  }
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -572,13 +1098,46 @@
     }
     .option-buttons {
       flex-direction: column;
+      gap: 0.75rem;
     }
-    .btn-option {
+    .btn-option-custom {
       width: 100%;
     }
     .back-to-top {
       top: 1rem;
       right: 1rem;
+    }
+    .dots-pattern {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+    .audit-card {
+      padding: 1.75rem 1.5rem;
+    }
+    .slide-question-content {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .question-texts-box {
+      text-align: center;
+      align-items: center;
+    }
+    .question-avatar-box {
+      margin-bottom: 0.5rem;
+    }
+    .wizard-header-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .category-badge {
+      align-self: flex-end;
     }
   }
 </style>
@@ -588,13 +1147,14 @@
   const slides = document.querySelectorAll('.audit-slide');
   const progressFill = document.getElementById('progress-indicator');
   const stepCounter = document.getElementById('step-counter');
-  const categoryBadge = document.getElementById('category-badge');
+  const categoryText = document.getElementById('category-text');
   const btnBack = document.getElementById('btn-back') as HTMLButtonElement;
   const wizardControls = document.getElementById('wizard-controls');
   const slidesWrapper = document.getElementById('slides-wrapper');
   
   const loadingScreen = document.getElementById('audit-loading-screen');
   const resultsScreen = document.getElementById('audit-results-screen');
+  const auditFeaturesBar = document.getElementById('audit-features-bar');
   
   const healthFill = document.getElementById('health-fill');
   const healthValue = document.getElementById('health-value');
@@ -613,7 +1173,6 @@
   // Guardar respuestas: 'si', 'no', 'neutral'
   const answers: Array<string> = [];
   const questionsCategories = Array.from(slides).map(s => s.getAttribute('data-category') || '');
-  const questionsTexts = Array.from(slides).map(s => s.querySelector('.question-text')?.textContent || '');
 
   function updateWizard() {
     // Actualizar slides activos
@@ -630,7 +1189,7 @@
     const progressPct = (stepNum / totalSteps) * 100;
     if (progressFill) progressFill.style.width = `${progressPct}%`;
     if (stepCounter) stepCounter.textContent = `Pregunta ${stepNum} de ${totalSteps}`;
-    if (categoryBadge) categoryBadge.textContent = questionsCategories[currentIdx];
+    if (categoryText) categoryText.textContent = questionsCategories[currentIdx];
 
     // Botón anterior
     if (btnBack) {
@@ -671,16 +1230,10 @@
     if (wizardControls) wizardControls.style.display = 'none';
     if (progressFill) progressFill.style.display = 'none';
     if (stepCounter) stepCounter.style.display = 'none';
-    if (categoryBadge) categoryBadge.style.display = 'none';
-
-    // Ocultar cabecera vacía, cuerpo del wizard y barra de progreso para eliminar espacio en blanco
-    const wizardHeader = document.querySelector('.wizard-header') as HTMLElement;
-    const wizardBody = document.querySelector('.wizard-body') as HTMLElement;
-    const progressBar = document.querySelector('.wizard-progress-bar') as HTMLElement;
     
-    if (wizardHeader) wizardHeader.style.display = 'none';
-    if (wizardBody) wizardBody.style.display = 'none';
-    if (progressBar) progressBar.style.display = 'none';
+    const wizardHeaderRow = document.querySelector('.wizard-header-row') as HTMLElement;
+    if (wizardHeaderRow) wizardHeaderRow.style.display = 'none';
+    if (auditFeaturesBar) auditFeaturesBar.style.display = 'none';
 
     // Remover fondo, bordes y paddings del contenedor padre del wizard
     const auditWizard = document.getElementById('audit-wizard');
@@ -691,6 +1244,12 @@
       auditWizard.style.padding = '0';
       auditWizard.style.maxWidth = '1100px';
     }
+
+    // Ocultar el brillo de fondo y patrones de puntos en modo resultados
+    const auditGlow = document.querySelector('.audit-glow') as HTMLElement;
+    const dotsPatterns = document.querySelectorAll('.dots-pattern');
+    if (auditGlow) auditGlow.style.display = 'none';
+    dotsPatterns.forEach((dot: any) => dot.style.display = 'none');
 
     // Mostrar pantalla de carga
     if (loadingScreen) loadingScreen.style.display = 'flex';
