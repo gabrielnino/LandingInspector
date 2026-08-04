@@ -2,6 +2,10 @@
 // src/components/features/landing/comp-faq.astro
 ---
 <section id="faq" class="snap-section faq-section">
+  <!-- Brillos cálidos de fondo a los lados del acordeón -->
+  <div class="faq-glow glow-left"></div>
+  <div class="faq-glow glow-right"></div>
+
   <a href="#top" class="back-to-top" aria-label="Volver al inicio" title="Volver al inicio">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m18 15-6-6-6 6"></path>
@@ -10,16 +14,21 @@
 
   <div class="container faq-container">
     <div class="section-header text-center">
-      <span class="section-badge">FAQ</span>
-      <h2 class="section-title">Antes de Preguntar</h2>
-      <p class="section-subtitle">Preguntas comunes sobre la auditoría y la forma de trabajar conmigo.</p>
+      <div class="faq-badge">
+        <span class="faq-badge-text">FAQ</span>
+      </div>
+      <h2 class="section-title">Antes de <span class="highlight-title-faq">Preguntar</span></h2>
+      <p class="section-subtitle">Resolvemos las dudas más comunes sobre la auditoría y la forma de trabajar conmigo.</p>
     </div>
 
     <div class="faq-list">
-      <!-- FAQ 1 -->
+      <!-- FAQ 1 (Sello de Gratis) -->
       <div class="faq-item glass-panel">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-question">¿De verdad es gratis la auditoría personal?</span>
+          <div class="faq-trigger-left">
+            <div class="faq-icon-box">🏷️</div>
+            <span class="faq-question">¿De verdad es gratis la auditoría personal?</span>
+          </div>
           <span class="faq-icon-indicator"></span>
         </button>
         <div class="faq-content">
@@ -27,10 +36,13 @@
         </div>
       </div>
 
-      <!-- FAQ 2 -->
+      <!-- FAQ 2 (Reloj) -->
       <div class="faq-item glass-panel">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-question">¿Cuánto tarda en entregarse el diagnóstico hecho a mano?</span>
+          <div class="faq-trigger-left">
+            <div class="faq-icon-box">🕒</div>
+            <span class="faq-question">¿Cuánto tarda en entregarse el diagnóstico hecho a mano?</span>
+          </div>
           <span class="faq-icon-indicator"></span>
         </button>
         <div class="faq-content">
@@ -38,10 +50,13 @@
         </div>
       </div>
 
-      <!-- FAQ 3 -->
+      <!-- FAQ 3 (Monitor) -->
       <div class="faq-item glass-panel">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-question">No tengo una página web todavía, ¿esto me sirve de algo?</span>
+          <div class="faq-trigger-left">
+            <div class="faq-icon-box">🖥️</div>
+            <span class="faq-question">No tengo una página web todavía, ¿esto me sirve de algo?</span>
+          </div>
           <span class="faq-icon-indicator"></span>
         </button>
         <div class="faq-content">
@@ -49,14 +64,59 @@
         </div>
       </div>
 
-      <!-- FAQ 4 -->
+      <!-- FAQ 4 (Mundo) -->
       <div class="faq-item glass-panel">
         <button class="faq-trigger" aria-expanded="false">
-          <span class="faq-question">¿Trabajas únicamente con negocios en Canadá y Estados Unidos?</span>
+          <div class="faq-trigger-left">
+            <div class="faq-icon-box">🌐</div>
+            <span class="faq-question">¿Trabajas únicamente con negocios en Canadá y Estados Unidos?</span>
+          </div>
           <span class="faq-icon-indicator"></span>
         </button>
         <div class="faq-content">
           <p class="faq-answer">Mi enfoque principal es ayudar al emprendedor hispano residente en Canadá y EE. UU. (ya que vivo en Vancouver y entiendo las particularidades del mercado local norteamericano). Sin embargo, también trabajo con negocios y profesionales de Latinoamérica y España que buscan dar un salto premium internacional.</p>
+        </div>
+      </div>
+
+      <!-- Tarjeta especial FAQ CTA (Chat) -->
+      <div class="faq-item glass-panel faq-cta-card">
+        <div class="faq-cta-layout">
+          <div class="faq-trigger-left">
+            <div class="faq-icon-box chat-icon-box">💬</div>
+            <div class="faq-cta-texts">
+              <span class="faq-question">¿Tienes otra pregunta?</span>
+              <p class="faq-cta-desc">Estoy aquí para ayudarte a tomar mejores decisiones para tu negocio.</p>
+            </div>
+          </div>
+          <div class="faq-cta-action">
+            <a href="#offer" class="btn btn-primary btn-faq-chat">Escríbeme directamente &rarr;</a>
+            <span class="faq-chat-notice">✓ Respuesta rápida y personalizada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de confianza inferior -->
+    <div class="faq-trust-bar glass-panel">
+      <div class="trust-bar-item">
+        <span class="trust-bar-icon">🛡️</span>
+        <div class="trust-bar-text">
+          <strong class="trust-bar-title">100% Confidencial</strong>
+          <span class="trust-bar-desc">Tu información está segura y nunca será compartida.</span>
+        </div>
+      </div>
+      <div class="trust-bar-item">
+        <span class="trust-bar-icon">👤</span>
+        <div class="trust-bar-text">
+          <strong class="trust-bar-title">Sin compromiso</strong>
+          <span class="trust-bar-desc">La auditoría no tiene letra pequeña ni compromiso de compra.</span>
+        </div>
+      </div>
+      <div class="trust-bar-item">
+        <span class="trust-bar-icon">⭐</span>
+        <div class="trust-bar-text">
+          <strong class="trust-bar-title">Enfoque en resultados</strong>
+          <span class="trust-bar-desc">Te entrego insights claros y prácticos para que tomes acción.</span>
         </div>
       </div>
     </div>
@@ -65,9 +125,15 @@
 
 <style>
   .faq-section {
-    background-color: var(--color-bg-secondary);
+    background-color: transparent;
     transition: background-color var(--transition-slow);
     position: relative;
+    padding: 4.25rem 0 1rem 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
   .back-to-top {
@@ -84,6 +150,7 @@
     align-items: center;
     justify-content: center;
     transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    z-index: 10;
   }
 
   .back-to-top:hover {
@@ -91,50 +158,114 @@
     border-color: var(--color-accent-primary);
   }
 
+  /* Brillos neón laterales de fondo */
+  .faq-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  .faq-glow.glow-left {
+    top: 35%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(245, 165, 36, 0.08) 0%, transparent 70%);
+  }
+
+  .faq-glow.glow-right {
+    top: 55%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(245, 165, 36, 0.06) 0%, transparent 70%);
+  }
+
+  html[data-theme="brand"] .faq-glow {
+    display: none;
+  }
+
   .faq-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: 0.85rem;
     width: 100%;
   }
 
-  .section-badge {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* FAQ badge */
+  .faq-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 1.15rem;
+    background-color: rgba(24, 24, 27, 0.45);
+    border: 1px solid rgba(245, 165, 36, 0.3);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 0.15rem;
+    width: max-content;
+  }
+
+  html[data-theme="brand"] .faq-badge {
+    background-color: rgba(27, 42, 86, 0.05);
+    border: 1px solid rgba(27, 42, 86, 0.15);
+  }
+
+  .faq-badge-text {
+    font-size: 0.725rem;
+    font-weight: 800;
     color: var(--color-accent-primary);
     letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 0.25rem;
+    line-height: 1;
   }
 
   .section-title {
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.15rem;
+    font-family: var(--font-title);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .highlight-title-faq {
+    color: var(--color-accent-primary);
   }
 
   .section-subtitle {
     color: var(--color-text-secondary);
-    font-size: 1rem;
+    font-size: 0.925rem;
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.45;
   }
 
+  /* Lista de acordeón */
   .faq-list {
     width: 100%;
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.65rem;
   }
 
   .faq-item {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    transition: border-color var(--transition-fast);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
   .faq-item:hover {
@@ -145,7 +276,7 @@
     width: 100%;
     background: transparent;
     border: none;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,56 +285,96 @@
     gap: 1.5rem;
   }
 
+  .faq-trigger-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .faq-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    background-color: rgba(245, 165, 36, 0.05);
+    border: 1px solid rgba(245, 165, 36, 0.25);
+    color: var(--color-accent-primary);
+    box-shadow: 0 0 10px rgba(245, 165, 36, 0.1);
+    line-height: 1;
+  }
+
+  html[data-theme="brand"] .faq-icon-box {
+    background-color: rgba(27, 42, 86, 0.03);
+    border: 1px solid rgba(27, 42, 86, 0.15);
+    color: var(--color-accent-primary);
+    box-shadow: none;
+  }
+
   .faq-question {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 700;
     color: var(--color-text-primary);
     font-family: var(--font-title);
     line-height: 1.35;
   }
 
+  /* Indicador circular + */
   .faq-icon-indicator {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     flex-shrink: 0;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  html[data-theme="brand"] .faq-icon-indicator {
+    background-color: rgba(27, 42, 86, 0.02);
+    border: 1px solid rgba(27, 42, 86, 0.08);
   }
 
   .faq-icon-indicator::before, .faq-icon-indicator::after {
     content: '';
     position: absolute;
     background-color: var(--color-text-primary);
-    transition: transform var(--transition-fast);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
 
-  /* Línea horizontal del signo más */
+  /* Línea horizontal */
   .faq-icon-indicator::before {
-    width: 14px;
-    height: 2px;
-    top: 11px;
-    left: 5px;
+    width: 10px;
+    height: 1.5px;
+    top: 13.25px;
+    left: 9px;
   }
 
-  /* Línea vertical del signo más */
+  /* Línea vertical */
   .faq-icon-indicator::after {
-    width: 2px;
-    height: 14px;
-    top: 5px;
-    left: 11px;
+    width: 1.5px;
+    height: 10px;
+    top: 9px;
+    left: 13.25px;
   }
 
-  .faq-trigger[aria-expanded="true"] .faq-icon-indicator::after {
-    transform: rotate(90deg);
-    opacity: 0;
-  }
-
-  .faq-trigger[aria-expanded="true"] .faq-icon-indicator::before {
-    transform: rotate(180deg);
+  .faq-trigger[aria-expanded="true"] .faq-icon-indicator {
+    transform: rotate(135deg);
+    border-color: var(--color-accent-primary);
+    background-color: rgba(245, 165, 36, 0.05);
   }
 
   .faq-content {
     border-top: 1px solid var(--color-border);
-    background-color: rgba(10, 20, 36, 0.1);
+    background-color: rgba(245, 165, 36, 0.01);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -212,10 +383,142 @@
   }
 
   .faq-answer {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.55;
     text-align: justify;
+  }
+
+  /* Tarjeta especial FAQ CTA (Chat) */
+  .faq-cta-card {
+    padding: 1rem 1.5rem;
+  }
+
+  .faq-cta-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+  }
+
+  .chat-icon-box {
+    background-color: rgba(245, 165, 36, 0.08);
+    border-color: rgba(245, 165, 36, 0.3);
+    box-shadow: 0 0 10px rgba(245, 165, 36, 0.12);
+  }
+
+  html[data-theme="brand"] .chat-icon-box {
+    background-color: rgba(27, 42, 86, 0.04);
+    border-color: rgba(27, 42, 86, 0.2);
+    box-shadow: none;
+  }
+
+  .faq-cta-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    text-align: left;
+  }
+
+  .faq-cta-desc {
+    font-size: 0.825rem;
+    color: var(--color-text-secondary);
+  }
+
+  .faq-cta-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .btn-faq-chat {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.825rem;
+    font-weight: 700;
+    border-radius: 8px;
+  }
+
+  .faq-chat-notice {
+    font-size: 0.65rem;
+    color: #2ec4b6;
+    font-weight: 700;
+  }
+
+  /* Barra de confianza inferior */
+  .faq-trust-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    padding: 1.25rem 2rem;
+    margin-top: 0.75rem;
+    border-radius: 12px;
+    background-color: rgba(24, 24, 27, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  html[data-theme="brand"] .faq-trust-bar {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: 0 10px 30px rgba(27, 42, 86, 0.08);
+  }
+
+  .trust-bar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    text-align: left;
+  }
+
+  .trust-bar-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .trust-bar-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .trust-bar-title {
+    font-size: 0.825rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .trust-bar-desc {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    line-height: 1.3;
+  }
+
+  @media (max-width: 992px) {
+    .faq-cta-layout {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.25rem;
+    }
+    .faq-cta-texts {
+      text-align: center;
+      align-items: center;
+    }
+    .faq-cta-action {
+      width: 100%;
+    }
+    .btn-faq-chat {
+      width: 100%;
+      justify-content: center;
+    }
+    .faq-trust-bar {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
   }
 
   @media (max-width: 768px) {
@@ -227,7 +530,7 @@
       right: 1rem;
     }
     .faq-question {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
   }
 </style>
@@ -271,9 +574,9 @@
       if (content) {
         if (nextExpanded) {
           // Medir scrollHeight para expandir de forma exacta y fluida
-          content.style.paddingTop = '1.5rem';
-          content.style.paddingBottom = '1.5rem';
-          content.style.maxHeight = `${content.scrollHeight + 48}px`; // scrollHeight + padding vertical
+          content.style.paddingTop = '1.25rem';
+          content.style.paddingBottom = '1.25rem';
+          content.style.maxHeight = `${content.scrollHeight + 40}px`; // scrollHeight + padding vertical
           content.style.opacity = '1';
         } else {
           // Contraer suavemente
