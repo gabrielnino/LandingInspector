@@ -257,28 +257,32 @@
   .cases-badge {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.4rem 0.85rem;
-    background-color: rgba(24, 24, 27, 0.4);
+    padding: 0.4rem 1.15rem;
+    background-color: rgba(24, 24, 27, 0.45);
     border: 1px solid rgba(245, 165, 36, 0.3);
     border-radius: 50px;
     backdrop-filter: blur(10px);
+    white-space: nowrap;
+    width: max-content;
   }
 
   :global([data-theme="brand"]) .cases-badge {
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(27, 42, 86, 0.2);
+    background-color: rgba(27, 42, 86, 0.05);
+    border: 1px solid rgba(27, 42, 86, 0.15);
   }
 
   .cases-badge-text {
     font-size: 0.725rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--color-accent-primary);
     letter-spacing: 0.05em;
+    line-height: 1;
   }
 
   :global([data-theme="brand"]) .cases-badge-text {
-    color: var(--color-text-primary);
+    color: var(--color-accent-primary);
   }
 
   .section-title-cases {
