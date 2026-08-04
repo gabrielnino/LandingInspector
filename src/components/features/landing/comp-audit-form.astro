@@ -1,0 +1,141 @@
+---
+// src/components/features/landing/comp-audit-form.astro
+// Web3Forms Access Key: Reemplazar con clave de producción
+const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+---
+<form action="https://api.web3forms.com/submit" method="POST" class="audit-capture-form" id="contact-form">
+  <!-- Web3Forms Config -->
+  <input type="hidden" name="access_key" value={ACCESS_KEY} />
+  <input type="hidden" name="subject" value="Nueva Auditoría Solicitada - LandingInspector" />
+  <input type="hidden" name="from_name" value="LandingInspector Auditorías" />
+  <!-- Campos de redirección o confirmación opcionales si se desean -->
+  
+  <!-- Inputs Ocultos de Diagnóstico (Inyectados por el Wizard) -->
+  <input type="hidden" name="salud_conversion" id="form-score-salud" value="No completada" />
+  <input type="hidden" name="tasa_fuga_estimada" id="form-score-fuga" value="No completada" />
+  <input type="hidden" name="fallas_detectadas" id="form-fallas" value="Ninguna" />
+
+  <!-- Campos Visibles -->
+  <div class="form-group">
+    <label for="client-name" class="form-label">Tu Nombre</label>
+    <input type="text" name="name" id="client-name" class="form-input" placeholder="Ej: Luis Gabriel" required />
+  </div>
+
+  <div class="form-group">
+    <label for="client-email" class="form-label">Tu Email de Trabajo</label>
+    <input type="email" name="email" id="client-email" class="form-input" placeholder="Ej: contacto@tudominio.com" required />
+  </div>
+
+  <div class="form-group">
+    <label for="client-phone" class="form-label">WhatsApp / Teléfono <span class="muted-label">(Opcional)</span></label>
+    <input type="tel" name="phone" id="client-phone" class="form-input" placeholder="Ej: +1 (604) 555-0199" />
+  </div>
+
+  <div class="form-group">
+    <label for="client-website" class="form-label">Tu Web o Red Social Principal</label>
+    <input type="url" name="website" id="client-website" class="form-input" placeholder="Ej: https://tudominio.com" required />
+  </div>
+
+  <div class="form-group">
+    <label for="client-message" class="form-label">¿Qué te gustaría mejorar en tu negocio? <span class="muted-label">(Opcional)</span></label>
+    <textarea name="message" id="client-message" class="form-textarea" rows="2" placeholder="Ej: Quiero vender más servicios en Vancouver..."></textarea>
+  </div>
+
+  <p class="form-agenda-notice">
+    ⚠️ <strong>Cupo limitado:</strong> Luis realiza un máximo de 5 auditorías personalizadas en video por semana para garantizar calidad de nivel senior.
+  </p>
+
+  <button type="submit" class="btn btn-primary btn-submit">
+    Pedir mi auditoría gratis &rarr;
+  </button>
+
+  <p class="form-security-note">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+      <path fill-rule="evenodd" d="M2.166 4.9c0-.76.37-1.46 1.02-1.87A13.064 13.064 0 0110 1.22c3.19 0 6.14.73 8.813 2.05.65.41 1.02 1.12 1.02 1.87V10c0 5.002-4.086 9.11-9.103 9.87a1 1 0 01-.164 0C5.402 19.11 1.316 15 1.316 10V4.9zM10 5a1 1 0 00-.707.293l-3 3a1 1 0 001.414 1.414L9 7.414V13a1 1 0 102 0V7.414l1.293 1.293a1 1 0 001.414-1.414l-3-3A1 1 0 0010 5z" clip-rule="evenodd" />
+    </svg>
+    Tus datos se manejan con absoluta confidencialidad bajo NDAs. Cero Spam.
+  </p>
+</form>
+
+<style>
+  .audit-capture-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: left;
+  }
+
+  .form-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .muted-label {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.45rem 0.7rem;
+    color: var(--color-text-primary);
+    font-size: 0.82rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px var(--color-border-focus);
+  }
+
+  .form-textarea {
+    resize: vertical;
+  }
+
+  .form-agenda-notice {
+    font-size: 0.7rem;
+    background-color: rgba(245, 165, 36, 0.06);
+    border: 1px solid rgba(245, 165, 36, 0.15);
+    color: var(--color-text-secondary);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    line-height: 1.35;
+    margin: 0.15rem 0;
+  }
+
+  .btn-submit {
+    width: 100%;
+    margin-top: 0.15rem;
+    padding: 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .form-security-note {
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    line-height: 1.3;
+    margin-top: 0.25rem;
+  }
+
+  .form-security-note svg {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+  }
+</style>

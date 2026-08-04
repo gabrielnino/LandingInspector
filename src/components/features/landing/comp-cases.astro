@@ -1,0 +1,270 @@
+---
+// src/components/features/landing/comp-cases.astro
+---
+<section id="cases" class="snap-section cases-section">
+  <a href="#top" class="back-to-top" aria-label="Volver al inicio" title="Volver al inicio">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </a>
+
+  <div class="container cases-container">
+    <div class="section-header text-center">
+      <span class="section-badge">Prueba Social</span>
+      <h2 class="section-title">Resultados que Hablan con Números</h2>
+      <p class="section-subtitle">Casos reales de transformación digital que multiplican los prospectos de pequeños negocios.</p>
+    </div>
+
+    <div class="cases-grid">
+      <!-- Caso 1 (Caso Real) -->
+      <div class="case-card glass-panel">
+        <div class="case-header">
+          <span class="case-industry">E-Commerce / Distribuidora</span>
+          <span class="case-metric">Caso Real</span>
+        </div>
+        <h3 class="case-title">Maíz del Sol</h3>
+        <p class="case-desc">Una tienda tradicional de productos latinos con una plataforma móvil lenta que dificultaba las ventas. Rediseñamos su presencia completa a una SPA estática ultrarrápida con Astro. Optimizamos la carga móvil eliminando toda fricción técnica y visual.</p>
+        <div class="case-stats">
+          <div class="stat-box">
+            <span class="stat-number">0.8s</span>
+            <span class="stat-label">Carga en celular</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">+28%</span>
+            <span class="stat-label">Conversión estimada</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caso 2 (Modelo de Ejemplo) -->
+      <div class="case-card glass-panel">
+        <div class="case-header">
+          <span class="case-industry">Servicios Locales / Contratistas</span>
+          <span class="case-metric">Modelo Ilustrativo</span>
+        </div>
+        <h3 class="case-title">Captura de Llamadas Perdidas</h3>
+        <p class="case-desc">Muchos negocios tradicionales pierden llamadas activas mientras los técnicos operan en ruta. Implementamos un sistema automático de respuesta interactiva por WhatsApp/SMS que asiste al cliente al instante y agenda citas directamente en el calendario del equipo.</p>
+        <div class="case-stats">
+          <div class="stat-box">
+            <span class="stat-number">+45%</span>
+            <span class="stat-label">Citas recuperadas</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">15 hrs</span>
+            <span class="stat-label">Tiempo mensual ahorrado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caso 3 (Modelo de Ejemplo) -->
+      <div class="case-card glass-panel">
+        <div class="case-header">
+          <span class="case-industry">Consultoría / Profesionales</span>
+          <span class="case-metric">Modelo Ilustrativo</span>
+        </div>
+        <h3 class="case-title">Posicionamiento de Autoridad</h3>
+        <p class="case-desc">Profesionales independientes que dependían exclusivamente del boca en boca para captar clientes. Diseñamos una landing page enfocada en su cliente ideal (ICP), posicionando su trayectoria y atrayendo leads de alto ticket en mercados bilingües.</p>
+        <div class="case-stats">
+          <div class="stat-box">
+            <span class="stat-number">12/mes</span>
+            <span class="stat-label">Prospectos cualificados</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">3x</span>
+            <span class="stat-label">Retorno estimado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cases-action">
+      <a href="#audit" class="btn btn-primary">Medir la salud de mi negocio &rarr;</a>
+      <p class="cases-disclaimer">* Nota: Los casos corresponden a nuestro proyecto de marca real "Maíz del Sol" y a modelos técnicos proyectados para industrias locales. Los resultados de conversión se basan en auditorías previas de la industria y varían según la situación de cada negocio.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cases-section {
+    background-color: var(--color-bg-primary);
+    transition: background-color var(--transition-slow);
+    position: relative;
+  }
+
+  .back-to-top {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .back-to-top:hover {
+    background-color: var(--color-card-hover);
+    border-color: var(--color-accent-primary);
+  }
+
+  .cases-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+  }
+
+  .section-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-primary);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .case-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .case-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent-primary);
+  }
+
+  .case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem;
+  }
+
+  .case-industry {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .case-metric {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2ec4b6; /* Green for success */
+    background-color: rgba(46, 196, 182, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  :global([data-theme="brand"]) .case-metric {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-secondary);
+  }
+
+  .case-title {
+    font-size: 1.3rem;
+    font-family: var(--font-title);
+  }
+
+  .case-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    flex-grow: 1;
+    text-align: justify;
+  }
+
+  .case-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-family: var(--font-title);
+    color: var(--color-text-primary);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .cases-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .cases-disclaimer {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    text-align: center;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 992px) {
+    .cases-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    .back-to-top {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+</style>

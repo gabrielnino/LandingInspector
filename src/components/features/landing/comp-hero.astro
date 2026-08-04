@@ -1,0 +1,210 @@
+---
+// src/components/features/landing/comp-hero.astro
+---
+<section id="top" class="snap-section hero-section">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Auditoría 100% Gratis para Emprendedores Hispanos</span>
+      </div>
+      
+      <h1 class="hero-title">
+        Descubre qué está frenando las ventas de tu <span class="highlight-text">marca</span> y tu <span class="highlight-text">web</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        En solo 2 minutos, punto por punto: identifica qué te hace ver poco profesional online y qué debes arreglar primero. Sin tecnicismos, directo y totalmente gratis.
+      </p>
+      
+      <div class="hero-actions">
+        <a href="#audit" class="btn btn-primary btn-lg-scale">
+          Hacer mi auto-auditoría &rarr;
+        </a>
+        <a href="#offer" class="btn btn-secondary btn-lg-scale">
+          Pedir auditoría personal
+        </a>
+      </div>
+      
+      <div class="hero-footer-note">
+        <svg class="trust-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+        <span>Hecha por un developer con 20+ años de experiencia — no una agencia de plantillas.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    justify-content: center;
+    background-color: var(--color-bg-primary);
+    transition: background-color var(--transition-slow);
+    text-align: center;
+    z-index: 1;
+  }
+
+  /* Fondo de luces de neón decorativas */
+  .hero-glow-1 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 30vw;
+    height: 30vw;
+    background: radial-gradient(circle, rgba(252, 209, 22, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .hero-glow-2 {
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    width: 35vw;
+    height: 35vw;
+    background: radial-gradient(circle, rgba(18, 44, 84, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent-primary);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .badge-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-family: var(--font-title);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    line-height: 1.15;
+  }
+
+  .highlight-text {
+    position: relative;
+    display: inline-block;
+    color: var(--color-accent-primary);
+  }
+
+  :global([data-theme="brand"]) .highlight-text {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+    text-decoration-color: #f5a524; /* Unificado al Ámbar de la marca */
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .btn-lg-scale {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .hero-footer-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+  }
+
+  .trust-icon {
+    color: var(--color-accent-primary);
+  }
+
+  :global([data-theme="brand"]) .trust-icon {
+    color: var(--color-text-primary);
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(252, 209, 22, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(252, 209, 22, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(252, 209, 22, 0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.25rem;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .hero-actions .btn {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+// src/pages/page-index.astro
+import '../styles/style-variables.css';
+import '../styles/style-global.css';
+
+import CompNavbar from '../components/shared/comp-navbar.astro';
+import CompHero from '../components/features/landing/comp-hero.astro';
+import CompAuditTool from '../components/features/landing/comp-audit-tool.astro';
+import CompAuditForm from '../components/features/landing/comp-audit-form.astro';
+import CompServices from '../components/features/landing/comp-services.astro';
+import CompCases from '../components/features/landing/comp-cases.astro';
+import CompOfferDetails from '../components/features/landing/comp-offer-details.astro';
+import CompFaq from '../components/features/landing/comp-faq.astro';
+import CompFooter from '../components/shared/comp-footer.astro';
+
+// Metadatos SEO
+const title = "Auto-Auditoría de Conversión Web Gratuita | Luis Niño Developer";
+const description = "Descubre en 2 minutos qué está frenando las ventas de tu web y tu marca. Diagnóstico 100% gratuito para emprendedores en Canadá y EE. UU.";
+const canonicalUrl = "https://landinginspector.com/";
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- SEO Básico -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="Luis Niño Developer" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+</head>
+<body>
+  <!-- Barra de navegación fija -->
+  <CompNavbar />
+  
+  <!-- Contenedor del Scroll Snapping Vertical -->
+  <main class="snap-container">
+    
+    <!-- Sección 1: Hero -->
+    <CompHero />
+    
+    <!-- Sección 2: Herramienta de Auto-Auditoría con formulario en slot -->
+    <CompAuditTool>
+      <CompAuditForm slot="capture-form" />
+    </CompAuditTool>
+    
+    <!-- Sección 3: Catálogo de Servicios -->
+    <CompServices />
+    
+    <!-- Sección 4: Casos de Éxito / Prueba Social -->
+    <CompCases />
+    
+    <!-- Sección 5: Sobre Mí, Detalle de Oferta Gratuita y Retorno -->
+    <CompOfferDetails />
+    
+    <!-- Sección 6 (FAQ) e Integración del Footer final -->
+    <CompFaq />
+    
+    <CompFooter />
+  </main>
+</body>
+</html>

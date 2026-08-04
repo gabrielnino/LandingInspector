@@ -1,0 +1,76 @@
+/* Design Tokens & Theme Variables */
+
+:root {
+  /* Fonts */
+  --font-title: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-slow: 0.4s ease-in-out;
+
+  /* Spacing Scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+
+  /* Theme: Dark Mode (Default) */
+  --color-bg-primary: #0e1424; /* Tinta Oscura */
+  --color-bg-secondary: #1b2a56; /* Índigo Profundo */
+  --color-bg-tertiary: #111b36;
+  --color-text-primary: #f4f1e6; /* Heritage Cream */
+  --color-text-secondary: #c8c5ba;
+  --color-text-muted: #7d8b9e;
+  
+  --color-accent-primary: #f5a524; /* Ámbar Cálido */
+  --color-accent-primary-hover: #db901a;
+  --color-accent-primary-text: #0e1424; /* Tinta Oscura para contraste */
+  --color-accent-secondary: #ce1126; /* Canadian Red */
+  --color-accent-secondary-hover: #b00e1f;
+  
+  --color-border: rgba(244, 241, 230, 0.1);
+  --color-border-focus: rgba(245, 165, 36, 0.5);
+  --color-card-bg: rgba(27, 42, 86, 0.4);
+  --color-card-hover: rgba(33, 51, 102, 0.6);
+  --shadow-primary: rgba(0, 0, 0, 0.3);
+  
+  --glass-bg: rgba(14, 20, 36, 0.7);
+  --glass-border: rgba(244, 241, 230, 0.08);
+
+  /* Brand Logo Variables (Naranja para modo oscuro) */
+  --color-logo-bg: #f5a524;
+  --color-logo-text: #ffffff;
+  --color-logo-diamond: rgba(244, 241, 230, 0.65);
+}
+
+/* Theme: Brand / Light Cream Mode */
+[data-theme="brand"] {
+  --color-bg-primary: #f4f1e6; /* Heritage Cream */
+  --color-bg-secondary: #ebdcb9; /* Warm Cream Accent */
+  --color-bg-tertiary: #e6e3d7;
+  --color-text-primary: #1b2a56; /* Índigo Profundo */
+  --color-text-secondary: #2c3f73;
+  --color-text-muted: #5c6d96;
+  
+  --color-accent-primary: #1b2a56; /* Índigo Profundo */
+  --color-accent-primary-hover: #2c3f73;
+  --color-accent-primary-text: #f4f1e6; /* Heritage Cream para contraste */
+  --color-accent-secondary: #ce1126; /* Canadian Red */
+  --color-accent-secondary-hover: #b00e1f;
+  
+  --color-border: rgba(27, 42, 86, 0.15);
+  --color-border-focus: rgba(27, 42, 86, 0.5);
+  --color-card-bg: rgba(255, 255, 255, 0.55);
+  --color-card-hover: rgba(255, 255, 255, 0.8);
+  --shadow-primary: rgba(27, 42, 86, 0.08);
+  
+  --glass-bg: rgba(244, 241, 230, 0.75);
+  --glass-border: rgba(27, 42, 86, 0.12);
+
+  /* Brand Logo Variables (Azul para modo claro) */
+  --color-logo-bg: #1b2a56;
+  --color-logo-text: #ffffff;
+  --color-logo-diamond: #f5a524;
+}

@@ -1,0 +1,288 @@
+---
+// src/components/features/landing/comp-faq.astro
+---
+<section id="faq" class="snap-section faq-section">
+  <a href="#top" class="back-to-top" aria-label="Volver al inicio" title="Volver al inicio">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </a>
+
+  <div class="container faq-container">
+    <div class="section-header text-center">
+      <span class="section-badge">FAQ</span>
+      <h2 class="section-title">Antes de Preguntar</h2>
+      <p class="section-subtitle">Preguntas comunes sobre la auditoría y la forma de trabajar conmigo.</p>
+    </div>
+
+    <div class="faq-list">
+      <!-- FAQ 1 -->
+      <div class="faq-item glass-panel">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">¿De verdad es gratis la auditoría personal?</span>
+          <span class="faq-icon-indicator"></span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer">Sí, es 100% gratis y sin ningún compromiso. Es mi forma de demostrar el nivel de calidad que manejo sin que tengas que arriesgar nada. Si ves valor en el diagnóstico, tal vez decidas contratarme para que lo arregle por ti. Si decides hacerlo por tu cuenta, te quedas con mi recomendación accionable de regalo sin costo.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item glass-panel">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">¿Cuánto tarda en entregarse el diagnóstico hecho a mano?</span>
+          <span class="faq-icon-indicator"></span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer">El diagnóstico automático de tu auto-auditoría es instantáneo. Tu análisis manual y la recomendación personalizada hechos a mano por mí tardan entre 24 y 48 horas laborables. Te llegará un enlace a un video rápido o un correo claro directamente a tu bandeja.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item glass-panel">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">No tengo una página web todavía, ¿esto me sirve de algo?</span>
+          <span class="faq-icon-indicator"></span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer">¡Absolutamente! Si no tienes web, analizamos tu presencia actual en redes sociales (Instagram, Facebook o tu perfil de Google Business) y te indico exactamente qué bases estructurales, de marca y de copy debes preparar antes de gastar dinero en programar una web.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item glass-panel">
+        <button class="faq-trigger" aria-expanded="false">
+          <span class="faq-question">¿Trabajas únicamente con negocios en Canadá y Estados Unidos?</span>
+          <span class="faq-icon-indicator"></span>
+        </button>
+        <div class="faq-content">
+          <p class="faq-answer">Mi enfoque principal es ayudar al emprendedor hispano residente en Canadá y EE. UU. (ya que vivo en Vancouver y entiendo las particularidades del mercado local norteamericano). Sin embargo, también trabajo con negocios y profesionales de Latinoamérica y España que buscan dar un salto premium internacional.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background-color: var(--color-bg-secondary);
+    transition: background-color var(--transition-slow);
+    position: relative;
+  }
+
+  .back-to-top {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .back-to-top:hover {
+    background-color: var(--color-card-hover);
+    border-color: var(--color-accent-primary);
+  }
+
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+  }
+
+  .section-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-primary);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .faq-list {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .faq-item {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color var(--transition-fast);
+  }
+
+  .faq-item:hover {
+    border-color: var(--color-accent-primary);
+  }
+
+  .faq-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .faq-question {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-family: var(--font-title);
+    line-height: 1.35;
+  }
+
+  .faq-icon-indicator {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .faq-icon-indicator::before, .faq-icon-indicator::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-text-primary);
+    transition: transform var(--transition-fast);
+  }
+
+  /* Línea horizontal del signo más */
+  .faq-icon-indicator::before {
+    width: 14px;
+    height: 2px;
+    top: 11px;
+    left: 5px;
+  }
+
+  /* Línea vertical del signo más */
+  .faq-icon-indicator::after {
+    width: 2px;
+    height: 14px;
+    top: 5px;
+    left: 11px;
+  }
+
+  .faq-trigger[aria-expanded="true"] .faq-icon-indicator::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .faq-trigger[aria-expanded="true"] .faq-icon-indicator::before {
+    transform: rotate(180deg);
+  }
+
+  .faq-content {
+    border-top: 1px solid var(--color-border);
+    background-color: rgba(10, 20, 36, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 1.5rem;
+    transition: max-height var(--transition-slow) ease-in-out, padding var(--transition-slow) ease-in-out, opacity var(--transition-slow) ease-in-out;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.8rem;
+    }
+    .back-to-top {
+      top: 1rem;
+      right: 1rem;
+    }
+    .faq-question {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Acordeón de FAQs interactivo con animaciones suaves de altura
+  const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+  faqTriggers.forEach(trigger => {
+    const content = trigger.nextElementSibling as HTMLElement;
+    
+    // Inicializar el estado de forma explícita
+    if (content) {
+      content.style.maxHeight = '0px';
+      content.style.opacity = '0';
+      content.style.paddingTop = '0px';
+      content.style.paddingBottom = '0px';
+    }
+
+    trigger.addEventListener('click', () => {
+      const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+      
+      // Cerrar otros abiertos para tener comportamiento de acordeón estricto
+      if (!isExpanded) {
+        document.querySelectorAll('.faq-trigger[aria-expanded="true"]').forEach(openTrigger => {
+          openTrigger.setAttribute('aria-expanded', 'false');
+          const openContent = openTrigger.nextElementSibling as HTMLElement;
+          if (openContent) {
+            openContent.style.maxHeight = '0px';
+            openContent.style.opacity = '0';
+            openContent.style.paddingTop = '0px';
+            openContent.style.paddingBottom = '0px';
+          }
+        });
+      }
+
+      // Alternar estado del trigger actual
+      const nextExpanded = !isExpanded;
+      trigger.setAttribute('aria-expanded', nextExpanded.toString());
+      
+      if (content) {
+        if (nextExpanded) {
+          // Medir scrollHeight para expandir de forma exacta y fluida
+          content.style.paddingTop = '1.5rem';
+          content.style.paddingBottom = '1.5rem';
+          content.style.maxHeight = `${content.scrollHeight + 48}px`; // scrollHeight + padding vertical
+          content.style.opacity = '1';
+        } else {
+          // Contraer suavemente
+          content.style.maxHeight = '0px';
+          content.style.opacity = '0';
+          content.style.paddingTop = '0px';
+          content.style.paddingBottom = '0px';
+        }
+      }
+    });
+  });
+</script>
