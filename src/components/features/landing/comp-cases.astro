@@ -9,77 +9,192 @@
   </a>
 
   <div class="container cases-container">
-    <div class="section-header text-center">
-      <span class="section-badge">Prueba Social</span>
-      <h2 class="section-title">Resultados que Hablan con Números</h2>
-      <p class="section-subtitle">Casos reales de transformación digital que multiplican los prospectos de pequeños negocios.</p>
+    
+    <!-- Encabezado de Sección con Gráfico de Tendencia Neón -->
+    <div class="section-header-cases">
+      <div class="header-cases-texts">
+        <div class="cases-badge">
+          <span class="cases-badge-icon-box">🏆</span>
+          <span class="cases-badge-text">PRUEBA SOCIAL</span>
+        </div>
+        <h2 class="section-title-cases">Resultados que Hablan <br/>con <span class="italic-title">Números</span></h2>
+        <p class="section-subtitle-cases">Casos reales de transformación digital que multiplican los prospectos de pequeños negocios.</p>
+      </div>
+      
+      <div class="header-cases-visual">
+        <svg viewBox="0 0 320 180" class="cases-trend-chart" aria-hidden="true">
+          <defs>
+            <linearGradient id="trend-grad-cases" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="var(--color-accent-primary)" stop-opacity="0.2" />
+              <stop offset="100%" stop-color="var(--color-accent-primary)" stop-opacity="1" />
+            </linearGradient>
+            <filter id="glow-orange-cases" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+          <!-- Barras de fondo -->
+          <rect x="50" y="80" width="16" height="70" rx="3" fill="var(--color-accent-primary)" opacity="0.08" />
+          <rect x="95" y="65" width="16" height="85" rx="3" fill="var(--color-accent-primary)" opacity="0.12" />
+          <rect x="140" y="55" width="16" height="95" rx="3" fill="var(--color-accent-primary)" opacity="0.15" />
+          <rect x="185" y="40" width="16" height="110" rx="3" fill="var(--color-accent-primary)" opacity="0.18" />
+          <rect x="230" y="28" width="16" height="122" rx="3" fill="var(--color-accent-primary)" opacity="0.22" />
+          <rect x="275" y="15" width="16" height="135" rx="3" fill="var(--color-accent-primary)" opacity="0.26" />
+          
+          <!-- Línea con glow -->
+          <path d="M20,140 Q70,120 120,80 T220,60 T300,20" fill="none" stroke="url(#trend-grad-cases)" stroke-width="4.5" filter="url(#glow-orange-cases)" stroke-linecap="round" />
+          <!-- Flecha de tendencia -->
+          <path d="M288,17 L304,18 L298,34 Z" fill="var(--color-accent-primary)" filter="url(#glow-orange-cases)" />
+        </svg>
+      </div>
     </div>
 
     <div class="cases-grid">
       <!-- Caso 1 (Caso Real) -->
       <div class="case-card glass-panel">
-        <div class="case-header">
-          <span class="case-industry">E-Commerce / Distribuidora</span>
-          <span class="case-metric">Caso Real</span>
+        <div class="case-header-row">
+          <div class="case-icon-box">🛒</div>
+          <div class="case-industry-block">
+            <span class="case-industry">E-Commerce / Distribuidora</span>
+            <span class="case-type-badge real">Caso Real</span>
+          </div>
         </div>
         <h3 class="case-title">Maíz del Sol</h3>
         <p class="case-desc">Una tienda tradicional de productos latinos con una plataforma móvil lenta que dificultaba las ventas. Rediseñamos su presencia completa a una SPA estática ultrarrápida con Astro. Optimizamos la carga móvil eliminando toda fricción técnica y visual.</p>
+        
         <div class="case-stats">
-          <div class="stat-box">
-            <span class="stat-number">0.8s</span>
-            <span class="stat-label">Carga en celular</span>
+          <div class="stat-item">
+            <span class="stat-icon-circle speed">⚡</span>
+            <div class="stat-text-group">
+              <span class="stat-number">0.8s</span>
+              <span class="stat-label">Carga en celular</span>
+            </div>
           </div>
-          <div class="stat-box">
-            <span class="stat-number">+28%</span>
-            <span class="stat-label">Conversión estimada</span>
+          <div class="stat-item">
+            <span class="stat-icon-circle trend">📈</span>
+            <div class="stat-text-group">
+              <span class="stat-number">+28%</span>
+              <span class="stat-label">Conversión estimada</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Caso 2 (Modelo de Ejemplo) -->
-      <div class="case-card glass-panel">
-        <div class="case-header">
-          <span class="case-industry">Servicios Locales / Contratistas</span>
-          <span class="case-metric">Modelo Ilustrativo</span>
+      <!-- Caso 2 (Modelo Ilustrativo - Destacado) -->
+      <div class="case-card glass-panel featured-case">
+        <div class="case-header-row">
+          <div class="case-icon-box highlighted-icon">📞</div>
+          <div class="case-industry-block">
+            <span class="case-industry">Servicios Locales / Contratistas</span>
+            <span class="case-type-badge model">Modelo Ilustrativo</span>
+          </div>
         </div>
         <h3 class="case-title">Captura de Llamadas Perdidas</h3>
         <p class="case-desc">Muchos negocios tradicionales pierden llamadas activas mientras los técnicos operan en ruta. Implementamos un sistema automático de respuesta interactiva por WhatsApp/SMS que asiste al cliente al instante y agenda citas directamente en el calendario del equipo.</p>
+        
         <div class="case-stats">
-          <div class="stat-box">
-            <span class="stat-number">+45%</span>
-            <span class="stat-label">Citas recuperadas</span>
+          <div class="stat-item">
+            <span class="stat-icon-circle check">✓</span>
+            <div class="stat-text-group">
+              <span class="stat-number">+45%</span>
+              <span class="stat-label">Citas recuperadas</span>
+            </div>
           </div>
-          <div class="stat-box">
-            <span class="stat-number">15 hrs</span>
-            <span class="stat-label">Tiempo mensual ahorrado</span>
+          <div class="stat-item">
+            <span class="stat-icon-circle clock">⏰</span>
+            <div class="stat-text-group">
+              <span class="stat-number">15 hrs</span>
+              <span class="stat-label">Tiempo mensual ahorrado</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Caso 3 (Modelo de Ejemplo) -->
+      <!-- Caso 3 (Modelo Ilustrativo) -->
       <div class="case-card glass-panel">
-        <div class="case-header">
-          <span class="case-industry">Consultoría / Profesionales</span>
-          <span class="case-metric">Modelo Ilustrativo</span>
+        <div class="case-header-row">
+          <div class="case-icon-box">👤</div>
+          <div class="case-industry-block">
+            <span class="case-industry">Consultoría / Profesionales</span>
+            <span class="case-type-badge model">Modelo Ilustrativo</span>
+          </div>
         </div>
         <h3 class="case-title">Posicionamiento de Autoridad</h3>
         <p class="case-desc">Profesionales independientes que dependían exclusivamente del boca en boca para captar clientes. Diseñamos una landing page enfocada en su cliente ideal (ICP), posicionando su trayectoria y atrayendo leads de alto ticket en mercados bilingües.</p>
+        
         <div class="case-stats">
-          <div class="stat-box">
-            <span class="stat-number">12/mes</span>
-            <span class="stat-label">Prospectos cualificados</span>
+          <div class="stat-item">
+            <span class="stat-icon-circle group">👥</span>
+            <div class="stat-text-group">
+              <span class="stat-number">12/mes</span>
+              <span class="stat-label">Prospectos cualificados</span>
+            </div>
           </div>
-          <div class="stat-box">
-            <span class="stat-number">3x</span>
-            <span class="stat-label">Retorno estimado</span>
+          <div class="stat-item">
+            <span class="stat-icon-circle trend-blue">📈</span>
+            <div class="stat-text-group">
+              <span class="stat-number">3x</span>
+              <span class="stat-label">Retorno estimado</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="cases-action">
-      <a href="#audit" class="btn btn-primary">Medir la salud de mi negocio &rarr;</a>
-      <p class="cases-disclaimer">* Nota: Los casos corresponden a nuestro proyecto de marca real "Maíz del Sol" y a modelos técnicos proyectados para industrias locales. Los resultados de conversión se basan en auditorías previas de la industria y varían según la situación de cada negocio.</p>
+    <!-- Barra de Propuesta Inferior -->
+    <div class="cases-action-bar glass-panel">
+      <div class="action-phone-box">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      </div>
+      <div class="action-texts">
+        <h4 class="action-title">¿Quieres saber cómo podemos lograr estos resultados en <span class="highlight-q-text">tu negocio</span>?</h4>
+        <p class="action-desc">Agendemos una llamada de descubrimiento gratuita.</p>
+      </div>
+      <div class="action-button-block">
+        <a href="#audit" class="btn btn-primary btn-action-audit">
+          <span>Medir la salud de mi negocio &rarr;</span>
+        </a>
+        <span class="action-lock-notice">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="11" height="11">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+          </svg>
+          Sin compromiso - 100% confidencial
+        </span>
+      </div>
+    </div>
+
+    <!-- Barra de Características Inferior -->
+    <div class="hero-features-bar glass-panel" id="cases-features-bar">
+      <div class="feature-item">
+        <div class="feature-icon-box">⚡</div>
+        <div class="feature-text">
+          <strong class="feature-title">Rápido y sencillo</strong>
+          <span class="feature-desc">Completa en solo 2 minutos y obtén tu diagnóstico.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-box">🎯</div>
+        <div class="feature-text">
+          <strong class="feature-title">Resultados inmediatos</strong>
+          <span class="feature-desc">Recibe un análisis personalizado al finalizar.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-box">🛡️</div>
+        <div class="feature-text">
+          <strong class="feature-title">100% Gratis</strong>
+          <span class="feature-desc">Sin tarjetas, sin trampas. Solo valor real.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon-box">👥</div>
+        <div class="feature-text">
+          <strong class="feature-title">Hecho para emprendedores</strong>
+          <span class="feature-desc">Entendemos tu negocio, hablamos tu idioma.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -89,6 +204,7 @@
     background-color: transparent;
     transition: background-color var(--transition-slow);
     position: relative;
+    padding: 6rem 0;
   }
 
   .back-to-top {
@@ -105,6 +221,7 @@
     align-items: center;
     justify-content: center;
     transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    z-index: 10;
   }
 
   .back-to-top:hover {
@@ -116,47 +233,105 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: 3rem;
     width: 100%;
   }
 
-  .section-badge {
-    font-size: 0.75rem;
+  /* Encabezado con tendencia neón */
+  .section-header-cases {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  .header-cases-texts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.75rem;
+  }
+
+  .cases-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background-color: rgba(24, 24, 27, 0.4);
+    border: 1px solid rgba(245, 165, 36, 0.3);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+  }
+
+  :global([data-theme="brand"]) .cases-badge {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(27, 42, 86, 0.2);
+  }
+
+  .cases-badge-text {
+    font-size: 0.725rem;
     font-weight: 700;
-    text-transform: uppercase;
     color: var(--color-accent-primary);
     letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 0.25rem;
   }
 
-  .section-title {
-    font-size: 2.25rem;
-    margin-bottom: 0.5rem;
+  :global([data-theme="brand"]) .cases-badge-text {
+    color: var(--color-text-primary);
   }
 
-  .section-subtitle {
+  .section-title-cases {
+    font-size: 2.75rem;
+    font-family: var(--font-title);
+    font-weight: 800;
+    color: var(--color-text-primary);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .italic-title {
+    font-style: italic;
+    color: var(--color-accent-primary);
+  }
+
+  .section-subtitle-cases {
     color: var(--color-text-secondary);
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.5;
   }
 
+  .header-cases-visual {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .cases-trend-chart {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  /* Grid de Tarjetas */
   .cases-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
-    margin-top: 1rem;
   }
 
   .case-card {
-    padding: 2rem;
+    padding: 2.5rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     align-items: flex-start;
-    transition: transform var(--transition-fast), border-color var(--transition-fast);
+    position: relative;
+    border-radius: 12px;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
   .case-card:hover {
@@ -164,103 +339,302 @@
     border-color: var(--color-accent-primary);
   }
 
-  .case-header {
+  .featured-case {
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: 0 0 25px rgba(245, 165, 36, 0.1);
+  }
+
+  :global([data-theme="brand"]) .featured-case {
+    border: 1.5px solid var(--color-accent-primary);
+    box-shadow: 0 0 25px rgba(27, 42, 86, 0.08);
+  }
+
+  .case-header-row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     width: 100%;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 0.75rem;
+  }
+
+  .case-icon-box {
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  }
+
+  .case-icon-box.highlighted-icon {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 10px rgba(245, 165, 36, 0.15);
+  }
+
+  .case-industry-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
   }
 
   .case-industry {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
-  }
-
-  .case-metric {
-    font-size: 0.75rem;
+    font-size: 0.725rem;
     font-weight: 700;
-    color: #2ec4b6; /* Green for success */
-    background-color: rgba(46, 196, 182, 0.1);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
-  :global([data-theme="brand"]) .case-metric {
-    color: var(--color-text-primary);
-    background-color: var(--color-bg-secondary);
+  .case-type-badge {
+    font-size: 0.625rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    width: fit-content;
+    margin-top: 0.15rem;
+  }
+
+  .case-type-badge.real {
+    background-color: rgba(46, 196, 182, 0.1);
+    color: #2ec4b6;
+    border: 1px solid rgba(46, 196, 182, 0.2);
+  }
+
+  .case-type-badge.model {
+    background-color: rgba(0, 180, 216, 0.1);
+    color: #00b4d8;
+    border: 1px solid rgba(0, 180, 216, 0.2);
   }
 
   .case-title {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-family: var(--font-title);
+    color: var(--color-text-primary);
+    font-weight: 700;
   }
 
   .case-desc {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--color-text-secondary);
-    line-height: 1.5;
+    line-height: 1.55;
     flex-grow: 1;
-    text-align: justify;
+    margin-bottom: 1rem;
   }
 
+  /* Estadísticas inferiores de cada tarjeta */
   .case-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    display: flex;
     width: 100%;
+    margin-top: auto;
+    padding-top: 1.25rem;
     border-top: 1px solid var(--color-border);
-    padding-top: 1rem;
+    gap: 1rem;
+    justify-content: space-between;
   }
 
-  .stat-box {
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: 50%;
+  }
+
+  .stat-icon-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.725rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .stat-icon-circle.speed {
+    background-color: rgba(46, 196, 182, 0.1);
+    color: #2ec4b6;
+    border: 1px solid rgba(46, 196, 182, 0.2);
+  }
+
+  .stat-icon-circle.trend {
+    background-color: rgba(46, 196, 182, 0.1);
+    color: #2ec4b6;
+    border: 1px solid rgba(46, 196, 182, 0.2);
+  }
+
+  .stat-icon-circle.check {
+    background-color: rgba(46, 196, 182, 0.1);
+    color: #2ec4b6;
+    border: 1px solid rgba(46, 196, 182, 0.2);
+  }
+
+  .stat-icon-circle.clock {
+    background-color: rgba(245, 165, 36, 0.1);
+    color: var(--color-accent-primary);
+    border: 1px solid rgba(245, 165, 36, 0.2);
+  }
+
+  .stat-icon-circle.group {
+    background-color: rgba(0, 180, 216, 0.1);
+    color: #00b4d8;
+    border: 1px solid rgba(0, 180, 216, 0.2);
+  }
+
+  .stat-icon-circle.trend-blue {
+    background-color: rgba(0, 180, 216, 0.1);
+    color: #00b4d8;
+    border: 1px solid rgba(0, 180, 216, 0.2);
+  }
+
+  .stat-text-group {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    line-height: 1.2;
+    text-align: left;
   }
 
   .stat-number {
-    font-size: 1.4rem;
+    font-size: 1.05rem;
     font-weight: 800;
     font-family: var(--font-title);
     color: var(--color-text-primary);
-    line-height: 1;
   }
 
   .stat-label {
-    font-size: 0.7rem;
-    color: var(--color-text-muted);
-    font-weight: 500;
+    font-size: 0.65rem;
+    color: var(--color-text-secondary);
   }
 
-  .cases-action {
+  /* Barra de Acción de propuesta */
+  .cases-action-bar {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 2rem;
+    padding: 1.5rem 2.25rem;
+    align-items: center;
+    gap: 1.5rem;
+    border-radius: 12px;
+    background-color: rgba(24, 24, 27, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  html[data-theme="brand"] .cases-action-bar {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1.5px solid var(--color-accent-primary); /* Borde azul oscuro de la paleta en modo claro */
+    box-shadow: 0 10px 30px rgba(27, 42, 86, 0.08);
+  }
+
+  .action-phone-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent-primary);
+    color: var(--color-accent-primary-text);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .action-texts {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-grow: 1;
+    gap: 0.15rem;
+  }
+
+  .action-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .highlight-q-text {
+    color: var(--color-accent-primary);
+  }
+
+  .action-desc {
+    font-size: 0.825rem;
+    color: var(--color-text-secondary);
+  }
+
+  .action-button-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.4rem;
+    flex-shrink: 0;
   }
 
-  .cases-disclaimer {
-    font-size: 0.75rem;
+  .btn-action-audit {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
+  }
+
+  .action-lock-notice {
+    font-size: 0.65rem;
     color: var(--color-text-muted);
-    max-width: 700px;
-    text-align: center;
-    line-height: 1.45;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  #cases-features-bar {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 1rem;
   }
 
   @media (max-width: 992px) {
+    .section-header-cases {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    .header-cases-texts {
+      align-items: center;
+      text-align: center;
+    }
+    .header-cases-visual {
+      justify-content: center;
+    }
     .cases-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
+    .cases-action-bar {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+      gap: 1.25rem;
+    }
+    .action-texts {
+      text-align: center;
+    }
+    .action-button-block {
+      width: 100%;
+    }
+    .btn-action-audit {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   @media (max-width: 768px) {
-    .section-title {
-      font-size: 1.8rem;
+    .section-title-cases {
+      font-size: 2.1rem;
     }
     .back-to-top {
       top: 1rem;
