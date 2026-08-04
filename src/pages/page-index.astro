@@ -24,24 +24,42 @@ const canonicalUrl = "https://landinginspector.com/";
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
+  
+  <!-- Favicons Dinámicos / Estáticos por Media Queries -->
+  <link rel="icon" type="image/svg+xml" href="/favicon-brand.svg" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Metatags de Configuración de Color Móvil -->
+  <meta name="theme-color" content="#0e1424" />
+
+  <!-- Optimización de Fuentes (Preconnect) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
   <!-- SEO Básico -->
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
+  <meta name="robots" content="index, follow" />
   
   <!-- Open Graph / Redes Sociales -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:site_name" content="Luis Niño Developer" />
+  <meta property="og:image" content="https://landinginspector.com/favicon-brand.svg" />
+  <meta property="og:image:alt" content="Logotipo Oficial de LandingInspector" />
+  <meta property="og:image:type" content="image/svg+xml" />
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://landinginspector.com/favicon-brand.svg" />
 </head>
 <body>
   <!-- Barra de navegación fija -->
