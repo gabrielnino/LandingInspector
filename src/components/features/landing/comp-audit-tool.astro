@@ -110,54 +110,52 @@
 
       <!-- Pantalla de Resultados Parciales -->
       <div class="audit-results" id="audit-results-screen" style="display: none;">
-        <div class="results-layout-three-cards">
+        <div class="results-layout-two-columns">
           
-          <!-- Tarjeta 1: Diagnóstico Visual -->
-          <div class="result-card glass-panel">
-            <div class="card-badge">Métricas</div>
-            <h3 class="card-title-results">Diagnóstico de Salud</h3>
-            <div class="card-content-results">
-              <div class="metric-block">
-                <span class="metric-label">Salud de Conversión Web</span>
-                <div class="metric-bar-container">
-                  <div class="metric-bar-fill health-color" id="health-fill" style="width: 0%;"></div>
+          <!-- Columna Izquierda: Resultados y Análisis -->
+          <div class="results-column-left">
+            <!-- Tarjeta 1: Diagnóstico de Salud -->
+            <div class="result-card glass-panel">
+              <div class="card-badge">Métricas</div>
+              <h3 class="card-title-results">Diagnóstico de Salud</h3>
+              <div class="card-content-results">
+                <div class="metric-block">
+                  <span class="metric-label">Salud de Conversión Web</span>
+                  <div class="metric-bar-container">
+                    <div class="metric-bar-fill health-color" id="health-fill" style="width: 0%;"></div>
+                  </div>
+                  <span class="metric-value health-color" id="health-value">0%</span>
                 </div>
-                <span class="metric-value health-color" id="health-value">0%</span>
+                
+                <div class="metric-block">
+                  <span class="metric-label">Riesgo Estimado de Fuga</span>
+                  <div class="metric-bar-container">
+                    <div class="metric-bar-fill alert-color" id="fuga-fill" style="width: 0%;"></div>
+                  </div>
+                  <span class="metric-value alert-color" id="fuga-value">0%</span>
+                </div>
               </div>
-              
-              <div class="metric-block">
-                <span class="metric-label">Riesgo Estimado de Fuga</span>
-                <div class="metric-bar-container">
-                  <div class="metric-bar-fill alert-color" id="fuga-fill" style="width: 0%;"></div>
+            </div>
+
+            <!-- Tarjeta 2: Análisis de Alertas -->
+            <div class="result-card glass-panel" id="analysis-card">
+              <div class="card-badge warning-badge">Análisis</div>
+              <h3 class="card-title-results">Impacto Estimado</h3>
+              <div class="card-content-results">
+                <p class="diagnostic-desc" id="diagnostic-summary">
+                  Procesando...
+                </p>
+                <div class="alerts-detected-container" id="alerts-detected-box" style="display: none;">
+                  <span class="alerts-label">Áreas críticas detectadas:</span>
+                  <div class="alerts-tags-list" id="alerts-tags-list"></div>
                 </div>
-                <span class="metric-value alert-color" id="fuga-value">0%</span>
               </div>
             </div>
           </div>
 
-          <!-- Tarjeta 2: Análisis de Alertas -->
-          <div class="result-card glass-panel" id="analysis-card">
-            <div class="card-badge warning-badge">Análisis</div>
-            <h3 class="card-title-results">Impacto Estimado</h3>
-            <div class="card-content-results">
-              <p class="diagnostic-desc" id="diagnostic-summary">
-                Procesando...
-              </p>
-              <div class="alerts-detected-container" id="alerts-detected-box" style="display: none;">
-                <span class="alerts-label">Áreas críticas detectadas:</span>
-                <div class="alerts-tags-list" id="alerts-tags-list"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tarjeta 3: Formulario de Registro -->
-          <div class="result-card glass-panel highlighted-card">
-            <div class="card-badge action-badge">Auditoría 1-a-1</div>
-            <h3 class="card-title-results">Desbloquear Reporte</h3>
-            <p class="unlock-subtitle">Déjame tus datos para enviarte un análisis detallado punto por punto y una recomendación en video hecha a mano para tu negocio.</p>
-            <div class="card-content-results">
-              <slot name="capture-form" />
-            </div>
+          <!-- Columna Derecha: Slot del Formulario de Captura -->
+          <div class="results-column-right">
+            <slot name="capture-form" />
           </div>
 
         </div>
@@ -379,12 +377,19 @@
     animation: fadeIn var(--transition-fast) ease-out;
   }
 
-  .results-layout-three-cards {
+  .results-layout-two-columns {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1.1fr;
     gap: 1.5rem;
     width: 100%;
-    align-items: stretch;
+    align-items: start;
+  }
+
+  .results-column-left, .results-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
   }
 
   .result-card {
@@ -556,7 +561,7 @@
   }
 
   @media (max-width: 992px) {
-    .results-layout-three-cards {
+    .results-layout-two-columns {
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
