@@ -25,11 +25,18 @@
         </div>
         <h3 class="service-card-title">Identidad de Marca & Logo</h3>
         <p class="service-card-desc">Rediseñamos la cara de tu negocio. Logos vectoriales profesionales y manuales de marca para inspirar confianza y autoridad ante tus clientes desde el primer segundo.</p>
-        <span class="service-card-badge">Acceso Económico</span>
+        
+        <div class="service-card-footer">
+          <span class="service-card-badge">
+            <span class="badge-icon">🪙</span> ACCESO ECONÓMICO
+          </span>
+          <span class="service-arrow">&rarr;</span>
+        </div>
       </div>
 
       <!-- Servicio 2 -->
       <div class="service-card glass-panel featured-service">
+        <span class="popular-ribbon">★ MÁS POPULAR</span>
         <div class="service-icon-box">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="32" height="32" class="service-icon">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -37,7 +44,13 @@
         </div>
         <h3 class="service-card-title">Webs y Landings que Venden</h3>
         <p class="service-card-desc">Sitios estáticos a medida ultra-rápidos (compilados con Astro) que cargan al instante en celulares. Optimizados con copywriting persuasivo para convertir visitas en llamadas y mensajes.</p>
-        <span class="service-card-badge featured-badge">El Servicio Principal</span>
+        
+        <div class="service-card-footer">
+          <span class="service-card-badge featured-badge">
+            <span class="badge-icon">👑</span> EL SERVICIO PRINCIPAL
+          </span>
+          <span class="service-arrow">&rarr;</span>
+        </div>
       </div>
 
       <!-- Servicio 3 -->
@@ -49,13 +62,33 @@
         </div>
         <h3 class="service-card-title">Sistemas e Integración con IA</h3>
         <p class="service-card-desc">Automatizamos los procesos de tu negocio. Capturamos llamadas de técnicos en ruta, integramos agendas con tu CRM y automatizamos respuestas por WhatsApp apoyados en IA.</p>
-        <span class="service-card-badge">Alta Gama</span>
+        
+        <div class="service-card-footer">
+          <span class="service-card-badge">
+            <span class="badge-icon">🚀</span> ALTA GAMA
+          </span>
+          <span class="service-arrow">&rarr;</span>
+        </div>
       </div>
     </div>
 
-    <div class="services-action">
-      <p class="action-text">¿Quieres una propuesta a la medida de tu negocio?</p>
-      <a href="#offer" class="btn btn-primary">Agendar llamada de descubrimiento</a>
+    <!-- Barra de Propuesta Inferior -->
+    <div class="services-action-bar glass-panel">
+      <div class="action-phone-box">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      </div>
+      <div class="action-texts">
+        <h4 class="action-title">¿Quieres una propuesta a la medida de tu negocio?</h4>
+        <p class="action-desc">Agendemos una llamada de descubrimiento gratuita.</p>
+      </div>
+      <a href="#offer" class="btn btn-primary btn-action-cal">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span>Agendar llamada de descubrimiento &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -65,6 +98,7 @@
     background-color: transparent;
     transition: background-color var(--transition-slow);
     position: relative;
+    padding: 6rem 0;
   }
 
   .back-to-top {
@@ -92,7 +126,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: 3rem;
     width: 100%;
   }
 
@@ -127,13 +161,14 @@
   }
 
   .service-card {
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     align-items: flex-start;
     position: relative;
-    transition: transform var(--transition-fast), border-color var(--transition-fast);
+    border-radius: 12px;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
   .service-card:hover {
@@ -143,7 +178,26 @@
 
   .featured-service {
     border: 2px solid var(--color-accent-primary);
-    box-shadow: 0 10px 30px rgba(252, 209, 22, 0.05);
+    box-shadow: 0 10px 30px rgba(245, 165, 36, 0.08);
+  }
+
+  :global([data-theme="brand"]) .featured-service {
+    border: 2px solid var(--color-accent-primary);
+    box-shadow: 0 10px 30px rgba(27, 42, 86, 0.06);
+  }
+
+  .popular-ribbon {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background-color: var(--color-accent-primary);
+    color: var(--color-accent-primary-text);
+    font-size: 0.65rem;
+    font-weight: 850;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .service-icon-box {
@@ -154,6 +208,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
   }
 
   .service-icon {
@@ -167,56 +222,150 @@
   .service-card-title {
     font-size: 1.35rem;
     font-family: var(--font-title);
+    color: var(--color-text-primary);
   }
 
   .service-card-desc {
     font-size: 0.9rem;
     color: var(--color-text-secondary);
-    line-height: 1.5;
+    line-height: 1.55;
     flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+
+  /* Pie de tarjeta */
+  .service-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--color-border);
   }
 
   .service-card-badge {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     letter-spacing: 0.03em;
-    background-color: var(--color-bg-primary);
-    padding: 0.2rem 0.6rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 0.25rem 0.6rem;
     border-radius: 4px;
     border: 1px solid var(--color-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .badge-icon {
+    font-size: 0.8rem;
   }
 
   .featured-badge {
     color: var(--color-accent-primary);
-    border-color: rgba(252, 209, 22, 0.3);
+    border-color: rgba(245, 165, 36, 0.3);
+    background-color: rgba(245, 165, 36, 0.03);
   }
 
   :global([data-theme="brand"]) .featured-badge {
     color: var(--color-text-primary);
-    border-color: var(--color-border);
+    border-color: rgba(27, 42, 86, 0.2);
+    background-color: rgba(27, 42, 86, 0.03);
   }
 
-  .services-action {
+  .service-arrow {
+    color: var(--color-accent-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    transition: transform var(--transition-fast);
+    line-height: 1;
+  }
+
+  .service-card:hover .service-arrow {
+    transform: translateX(5px);
+  }
+
+  /* Barra de Acción de propuesta */
+  .services-action-bar {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 2rem;
+    padding: 1.5rem 2.25rem;
+    align-items: center;
+    gap: 1.5rem;
+    border-radius: 12px;
+    background-color: rgba(24, 24, 27, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  html[data-theme="brand"] .services-action-bar {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1.5px solid var(--color-accent-primary); /* Borde azul oscuro de la paleta en modo claro */
+    box-shadow: 0 10px 30px rgba(27, 42, 86, 0.08);
+  }
+
+  .action-phone-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent-primary);
+    color: var(--color-accent-primary-text);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .action-texts {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    text-align: center;
+    text-align: left;
+    flex-grow: 1;
+    gap: 0.15rem;
   }
 
-  .action-text {
-    font-size: 0.95rem;
+  .action-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .action-desc {
+    font-size: 0.825rem;
     color: var(--color-text-secondary);
-    font-weight: 600;
+  }
+
+  .btn-action-cal {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
+    flex-shrink: 0;
   }
 
   @media (max-width: 992px) {
     .services-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
+    }
+    .services-action-bar {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+      gap: 1.25rem;
+    }
+    .action-texts {
+      text-align: center;
+    }
+    .btn-action-cal {
+      width: 100%;
+      justify-content: center;
     }
   }
 
