@@ -1,7 +1,7 @@
 ---
 // src/components/features/landing/comp-audit-form.astro
-// Web3Forms Access Key: Reemplazar con clave de producción
-const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+// Web3Forms Access Key: Carga desde variable de entorno o fallback local
+const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || "f7d37a23-66d8-41fe-a99d-d56a571ae620";
 ---
 <form action="https://api.web3forms.com/submit" method="POST" class="audit-capture-form-two-cards" id="contact-form">
   <!-- Web3Forms Config -->
@@ -76,6 +76,24 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
         </svg>
         Confidencialidad absoluta bajo NDAs. Cero Spam.
       </p>
+    </div>
+  </div>
+
+  <!-- Tarjeta C: Confirmación de Éxito (Paso 3) -->
+  <div class="form-card-part glass-panel highlighted-form-card" id="form-success" style="display: none;">
+    <div class="card-badge action-badge" style="border-color: rgba(46, 196, 182, 0.3); color: #2ec4b6; background-color: rgba(46, 196, 182, 0.05);">¡Completado!</div>
+    <h3 class="card-title-form">¡Diagnóstico Solicitado!</h3>
+    <div class="form-card-content success-card-content">
+      <div class="success-icon-large">🎉</div>
+      <p class="success-main-text">He recibido tus datos y tu score de conversión correctamente.</p>
+      <p class="success-sub-text">
+        Analizaré tu página web punto por punto y te enviaré un <strong>video diagnóstico hecho a mano</strong> en las próximas 48 horas.
+      </p>
+      <div class="success-actions">
+        <a href="#top" class="btn btn-secondary btn-success-back">
+          Volver al inicio
+        </a>
+      </div>
     </div>
   </div>
 </form>
@@ -246,36 +264,125 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
     flex-shrink: 0;
     color: var(--color-text-muted);
   }
+
+  /* Estilos del estado de éxito */
+  .success-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .success-icon-large {
+    font-size: 3rem;
+    animation: bounce 2s infinite;
+  }
+
+  .success-main-text {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .success-sub-text {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .success-actions {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .btn-success-back {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  /* Animación de rebote */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Estilos de validación e inline spinner */
+  .form-input.is-invalid, .form-textarea.is-invalid {
+    border-color: #ff0055;
+    box-shadow: 0 0 0 3px rgba(255, 0, 85, 0.15);
+  }
+
+  .spinner-inline {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 0.8s linear infinite;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 
 <script>
   const formStep1 = document.getElementById('form-step-1');
   const formStep2 = document.getElementById('form-step-2');
+  const formSuccess = document.getElementById('form-success');
   const btnFormNext = document.getElementById('btn-form-next');
   const btnFormPrev = document.getElementById('btn-form-prev');
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btnSubmit = form?.querySelector('.btn-submit') as HTMLButtonElement;
   
   // Campos del formulario a validar
   const inputName = document.getElementById('client-name') as HTMLInputElement;
   const inputEmail = document.getElementById('client-email') as HTMLInputElement;
   const inputWebsite = document.getElementById('client-website') as HTMLInputElement;
 
+  const inputs = [inputName, inputEmail, inputWebsite];
+
+  // Limpiar error al escribir
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      input.classList.remove('is-invalid');
+    });
+  });
+
   if (btnFormNext && formStep1 && formStep2) {
     btnFormNext.addEventListener('click', () => {
-      // Validar inputs nativamente
-      const isNameValid = inputName.checkValidity();
-      const isEmailValid = inputEmail.checkValidity();
-      const isWebsiteValid = inputWebsite.checkValidity();
+      let hasError = false;
+      inputs.forEach(input => {
+        if (!input.checkValidity()) {
+          input.classList.add('is-invalid');
+          hasError = true;
+        } else {
+          input.classList.remove('is-invalid');
+        }
+      });
 
-      if (isNameValid && isEmailValid && isWebsiteValid) {
+      if (!hasError) {
         // Ocultar paso 1 y mostrar paso 2 con animación
         formStep1.style.display = 'none';
         formStep2.style.display = 'flex';
         formStep2.style.animation = 'fadeIn var(--transition-fast) ease-out';
       } else {
-        // Reportar los errores de validación de forma nativa en el navegador
-        if (!isNameValid) inputName.reportValidity();
-        else if (!isEmailValid) inputEmail.reportValidity();
-        else if (!isWebsiteValid) inputWebsite.reportValidity();
+        // Reportar los errores de validación
+        const firstInvalid = inputs.find(input => !input.checkValidity());
+        if (firstInvalid) firstInvalid.reportValidity();
       }
     });
   }
@@ -286,6 +393,74 @@ const ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
       formStep2.style.display = 'none';
       formStep1.style.display = 'flex';
       formStep1.style.animation = 'fadeIn var(--transition-fast) ease-out';
+    });
+  }
+
+  // Envío asíncrono (AJAX) para evitar redirecciones de Web3Forms
+  if (form && formStep2 && formSuccess) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Validación previa al envío
+      const isNameValid = inputName.checkValidity();
+      const isEmailValid = inputEmail.checkValidity();
+      const isWebsiteValid = inputWebsite.checkValidity();
+      
+      if (!isNameValid || !isEmailValid || !isWebsiteValid) {
+        formStep2.style.display = 'none';
+        formStep1.style.display = 'flex';
+        if (!isNameValid) {
+          inputName.classList.add('is-invalid');
+          inputName.reportValidity();
+        } else if (!isEmailValid) {
+          inputEmail.classList.add('is-invalid');
+          inputEmail.reportValidity();
+        } else if (!isWebsiteValid) {
+          inputWebsite.classList.add('is-invalid');
+          inputWebsite.reportValidity();
+        }
+        return;
+      }
+      
+      // Cambiar estado del botón a cargando
+      if (btnSubmit) {
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = 'Enviando... <span class="spinner-inline"></span>';
+      }
+      
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Éxito: ocultar paso 2 y mostrar tarjeta de éxito
+          formStep2.style.display = 'none';
+          formSuccess.style.display = 'flex';
+          formSuccess.style.animation = 'fadeIn var(--transition-fast) ease-out';
+          
+          form.reset();
+        } else {
+          alert('Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.');
+          if (btnSubmit) {
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = 'Pedir auditoría &rarr;';
+          }
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Error de conexión. Por favor, revisa tu conexión a internet.');
+        if (btnSubmit) {
+          btnSubmit.disabled = false;
+          btnSubmit.innerHTML = 'Pedir auditoría &rarr;';
+        }
+      }
     });
   }
 </script>
