@@ -14,13 +14,42 @@
           <span class="badge-text">Auditoría 100% Gratis para Emprendedores Hispanos</span>
         </div>
         
-        <h1 class="hero-title">
+        <h1 class="hero-title" id="hero-title">
           Descubre qué está frenando las ventas de tu <span class="highlight-text">marca</span> y tu <span class="highlight-text">web</span>
         </h1>
-        
-        <p class="hero-subtitle">
+
+        <p class="hero-subtitle" id="hero-subtitle">
           En solo 2 minutos, punto por punto: identifica qué te hace ver poco profesional online y qué debes arreglar primero. Sin tecnicismos, directo y totalmente gratis.
         </p>
+
+        <!-- DTR: cambia titular/subtítulo según el anuncio (?ad=). Inline para evitar parpadeo. -->
+        <script is:inline>
+          (function () {
+            var MENSAJES = {
+              'logos-feos': {
+                h1: '¿Tu <span class="highlight-text">logo</span> te hace ver <span class="highlight-text">amateur</span>?',
+                sub: 'Te digo exactamente qué está mal en tu logo y tu web —y qué arreglar primero— en un diagnóstico gratis de 2 minutos.'
+              },
+              'generico': {
+                h1: 'Si tu marca parece <span class="highlight-text">hecha con IA barata</span>, esto es para ti',
+                sub: 'Audita en 2 minutos qué te hace ver poco profesional online y qué corregir primero. Directo y gratis.'
+              },
+              'logo-pro': {
+                h1: 'Tu <span class="highlight-text">logo genérico</span> está costándote <span class="highlight-text">clientes</span>',
+                sub: 'Descubre punto por punto qué arreglar primero en tu logo y tu web, en un diagnóstico gratis de 2 minutos.'
+              }
+            };
+            try {
+              var ad = new URLSearchParams(window.location.search).get('ad');
+              if (ad && MENSAJES[ad]) {
+                var t = document.getElementById('hero-title');
+                var s = document.getElementById('hero-subtitle');
+                if (t) t.innerHTML = MENSAJES[ad].h1;
+                if (s) s.textContent = MENSAJES[ad].sub;
+              }
+            } catch (e) {}
+          })();
+        </script>
         
         <div class="hero-actions">
           <a href="#audit" class="btn btn-primary btn-lg-scale">

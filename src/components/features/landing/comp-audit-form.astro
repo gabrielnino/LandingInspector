@@ -14,6 +14,12 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || "f7d37a23-66d8-41fe-a
   <input type="hidden" name="tasa_fuga_estimada" id="form-score-fuga" value="No completada" />
   <input type="hidden" name="fallas_detectadas" id="form-fallas" value="Ninguna" />
 
+  <!-- Atribución de campaña (rellenados por JS desde la URL / sessionStorage) -->
+  <input type="hidden" name="ad" id="form-ad" value="" />
+  <input type="hidden" name="utm_source" id="form-utm-source" value="" />
+  <input type="hidden" name="utm_campaign" id="form-utm-campaign" value="" />
+  <input type="hidden" name="utm_content" id="form-utm-content" value="" />
+
   <!-- Tarjeta A: Datos de Contacto (Paso 1) -->
   <div class="form-card-part glass-panel" id="form-step-1">
     <div class="card-badge">Paso 1 de 2</div>
@@ -355,6 +361,21 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || "f7d37a23-66d8-41fe-a
 
   const inputs = [inputName, inputEmail, inputWebsite];
 
+  // --- Atribución: leer ?ad y UTMs de la URL (o sessionStorage) y volcarlos a los campos ocultos ---
+  (function () {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const keys = ['ad', 'utm_source', 'utm_campaign', 'utm_content'];
+      keys.forEach((k) => {
+        const stored = sessionStorage.getItem('attr_' + k) || '';
+        const v = params.get(k) || stored || '';
+        if (v) sessionStorage.setItem('attr_' + k, v);
+        const el = document.getElementById('form-' + k.replace('utm_', 'utm-')) as HTMLInputElement | null;
+        if (el) el.value = v;
+      });
+    } catch (e) { /* atribución best-effort */ }
+  })();
+
   // Limpiar error al escribir
   inputs.forEach(input => {
     input.addEventListener('input', () => {
@@ -440,6 +461,12 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || "f7d37a23-66d8-41fe-a
         });
         
         if (response.ok) {
+          // Meta Pixel: registrar el Lead con la atribución del anuncio
+          try {
+            const _ad = (document.getElementById('form-ad') as HTMLInputElement | null)?.value || '';
+            (window as any).fbq && (window as any).fbq('track', 'Lead', { content_name: _ad || 'sin_ad' });
+          } catch (e) { /* pixel best-effort */ }
+
           // Éxito: ocultar paso 2 y mostrar tarjeta de éxito
           formStep2.style.display = 'none';
           formSuccess.style.display = 'flex';
