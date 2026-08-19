@@ -17,6 +17,7 @@ import CompFooter from '../components/shared/comp-footer.astro';
 const title = "Auto-Auditoría de Conversión Web Gratuita | Luis Niño Developer";
 const description = "Descubre en 2 minutos qué está frenando las ventas de tu web y tu marca. Diagnóstico 100% gratuito para emprendedores en Canadá y EE. UU.";
 const canonicalUrl = "https://landinginspector.com/";
+const GA_ID = import.meta.env.PUBLIC_GA_ID || "";
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -77,6 +78,19 @@ const canonicalUrl = "https://landinginspector.com/";
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2189856438529347&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
+
+  <!-- Google Analytics (GA4) -->
+  {GA_ID && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+      <script is:inline define:vars={{ GA_ID }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+      </script>
+    </>
+  )}
 </head>
 <body>
   <!-- Barra de navegación fija -->
