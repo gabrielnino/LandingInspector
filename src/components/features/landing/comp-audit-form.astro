@@ -361,6 +361,17 @@ const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || "f7d37a23-66d8-41fe-a
 
   const inputs = [inputName, inputEmail, inputWebsite];
 
+  // Modificar textos si ad=seguridad-ia
+  const adParam = new URLSearchParams(window.location.search).get('ad');
+  if (adParam === 'seguridad-ia') {
+    const successTitle = document.querySelector('#form-success .card-title-form');
+    const successMain = document.querySelector('#form-success .success-main-text');
+    const successSub = document.querySelector('#form-success .success-sub-text');
+    if (successTitle) successTitle.textContent = '¡Diagnóstico y Plantilla Solicitados!';
+    if (successMain) successMain.innerHTML = 'He recibido tus datos y tus respuestas del diagnóstico correctamente.';
+    if (successSub) successSub.innerHTML = 'Te enviaré la <strong>plantilla de n8n</strong> por correo de inmediato, y revisaré tu canal de WhatsApp para alertarte de posibles fugas de datos en las próximas 48 horas.';
+  }
+
   // --- Atribución: leer ?ad y UTMs de la URL (o sessionStorage) y volcarlos a los campos ocultos ---
   (function () {
     try {

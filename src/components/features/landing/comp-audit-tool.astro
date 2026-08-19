@@ -1189,6 +1189,49 @@
   
   // Guardar respuestas: 'si', 'no', 'neutral'
   const answers: Array<string> = [];
+
+  // Adaptar preguntas dinámicamente para la campaña de Seguridad e IA
+  const IA_QUESTIONS = [
+    { category: 'Privacidad', question: '¿Utilizas la <span class="highlight-q-text">API oficial de OpenAI</span> para procesar los datos de tus clientes?', desc: 'Las cuentas gratuitas de ChatGPT usan tus datos para entrenamiento, lo que viola la privacidad empresarial.' },
+    { category: 'Baneos', question: '¿Tu automatización de WhatsApp corre sobre la <span class="highlight-q-text">API Cloud oficial de Meta</span>?', desc: 'Usar pasarelas no oficiales o extensiones de Chrome provoca el baneo permanente de tu número.' },
+    { category: 'Spam Legal', question: '¿Pides consentimiento explícito (<span class="highlight-q-text">Opt-in</span>) antes de enviar mensajes automatizados?', desc: 'Las leyes TCPA (EE.UU.) y CASL (Canadá) exigen consentimiento. Enviar spam tiene multas de $1,500 por mensaje.' },
+    { category: 'Control Humano', question: '¿Cuenta tu bot con un <span class="highlight-q-text">semáforo de pausa</span> para detener la IA cuando un humano escribe?', desc: 'Si la IA y un humano responden al mismo tiempo, el cliente se confunde y el bot entra en bucle.' },
+    { category: 'Alucinaciones', question: '¿Has configurado <span class="highlight-q-text">guardrails de seguridad</span> (límites) contra inyecciones de código o prompts?', desc: 'Sin límites, un usuario malintencionado puede forzar a tu bot a aprobar descuentos falsos o inventar servicios.' },
+    { category: 'Integración', question: '¿Está el bot conectado directamente a tu <span class="highlight-q-text">Notion CRM</span> en tiempo real?', desc: 'Guardar datos en archivos locales o JSON sueltos aumenta el riesgo de pérdida y desorganización de prospectos.' },
+    { category: 'Derivación', question: '¿Ofrece el bot un botón claro de <span class="highlight-q-text">salida a operador humano</span> ante preguntas complejas?', desc: 'Forzar al cliente a hablar solo con la IA arruina la experiencia de usuario y reduce las ventas.' },
+    { category: 'Cifrado', question: '¿Las contraseñas y API keys están guardadas en <span class="highlight-q-text">variables de entorno seguras</span> en n8n?', desc: 'Dejar claves expuestas en los nodos del flujo es una vulnerabilidad crítica de seguridad.' },
+    { category: 'Idiomas', question: '¿Tu agente de IA es <span class="highlight-q-text">bilingüe nativo</span> (español e inglés) con detección automática?', desc: 'Para el mercado de Norteamérica, responder solo en español o usar un traductor lento hace perder leads.' },
+    { category: 'Tiempos', question: '¿Tiene tu bot un control de <span class="highlight-q-text">tiempo de espera</span> (timeout) para no saturar al cliente?', desc: 'Un bot que responde múltiples párrafos en milisegundos se siente artificial y molesto.' },
+    { category: 'Opt-Out', question: '¿Ofreces una palabra clave de salida clara (como <span class="highlight-q-text">"STOP"</span> o "CANCELAR")?', desc: 'Es obligatorio por ley para que el usuario pueda revocar su consentimiento de recibir mensajes.' },
+    { category: 'Monitoreo', question: '¿Recibes una <span class="highlight-q-text">alerta inmediata</span> en tu móvil si el bot entra en un error de ejecución?', desc: 'Si n8n falla y no te enteras, tu WhatsApp Business quedará completamente mudo.' }
+  ];
+
+  const adParam = new URLSearchParams(window.location.search).get('ad');
+  if (adParam === 'seguridad-ia') {
+    // Actualizar encabezados de la sección
+    const auditTitleEl = document.querySelector('.audit-section .section-title');
+    const auditSubtitleEl = document.querySelector('.audit-section .section-subtitle');
+    if (auditTitleEl) auditTitleEl.innerHTML = 'Auto-Auditoría de <span class="italic-title">Seguridad e IA</span>';
+    if (auditSubtitleEl) auditSubtitleEl.textContent = 'Descubre si tu automatización de WhatsApp cumple con la ley y está protegida contra fallos.';
+
+    // Actualizar etiquetas en la tarjeta de resultados
+    const labelHealth = document.querySelector('.metric-block:nth-of-type(1) .metric-label');
+    const labelRisk = document.querySelector('.metric-block:nth-of-type(2) .metric-label');
+    if (labelHealth) labelHealth.textContent = 'Salud y Compliance de la IA';
+    if (labelRisk) labelRisk.textContent = 'Riesgo de Fuga / Spam';
+
+    // Sobrescribir preguntas y categorías de los slides
+    slides.forEach((slide, idx) => {
+      if (IA_QUESTIONS[idx]) {
+        slide.setAttribute('data-category', IA_QUESTIONS[idx].category);
+        const qText = slide.querySelector('.question-text');
+        const qDesc = slide.querySelector('.question-desc');
+        if (qText) qText.innerHTML = IA_QUESTIONS[idx].question;
+        if (qDesc) qDesc.textContent = IA_QUESTIONS[idx].desc;
+      }
+    });
+  }
+
   const questionsCategories = Array.from(slides).map(s => s.getAttribute('data-category') || '');
 
   function updateWizard() {
@@ -1315,12 +1358,22 @@
 
     // Texto de diagnóstico y escritura en campos ocultos
     let summary = '';
-    if (healthScore < 50) {
-      summary = `⚠️ Alerta de Fuga Crítica. Tu marca y tu web muestran debilidades críticas en conversión y velocidad. Estimamos un riesgo potencial de fuga de hasta el ${fugaRate}% de tus clientes potenciales antes de que logren contactarte.`;
-    } else if (healthScore <= 80) {
-      summary = `⚠️ Pérdida Silenciosa de Ventas. Tienes bases razonables, pero existen problemas específicos de conversión que podrían poner en riesgo de fuga a cerca del ${fugaRate}% de tus visitas diarias.`;
+    if (adParam === 'seguridad-ia') {
+      if (healthScore < 50) {
+        summary = `⚠️ Riesgo Crítico de Bloqueo o Multa. Tu arquitectura de WhatsApp IA muestra graves fallos de seguridad y compliance. Estimamos un alto riesgo de baneo de número por Meta o multas de hasta $1,500/mensaje por spam (TCPA/CASL).`;
+      } else if (healthScore <= 80) {
+        summary = `⚠️ Vulnerabilidad de Datos / Control. Tienes bases correctas, pero tu flujo n8n carece de controles críticos (como la pausa humana o la prevención de alucinaciones) que podrían molestar a tus clientes o exponer tu base de datos.`;
+      } else {
+        summary = `✅ Arquitectura Segura. Tu configuración de WhatsApp e IA cumple con las mejores prácticas de privacidad y leyes de Norteamérica. Tienes un riesgo muy bajo de fallos o bloqueos.`;
+      }
     } else {
-      summary = `✅ Estado Saludable. Tienes una web y marca sólidas. Sin embargo, persisten pequeños detalles técnicos y de copy que causan un riesgo de fuga de hasta el ${fugaRate}% de tus prospectos potenciales actuales.`;
+      if (healthScore < 50) {
+        summary = `⚠️ Alerta de Fuga Crítica. Tu marca y tu web muestran debilidades críticas en conversión y velocidad. Estimamos un riesgo potencial de fuga de hasta el ${fugaRate}% de tus clientes potenciales antes de que logren contactarte.`;
+      } else if (healthScore <= 80) {
+        summary = `⚠️ Pérdida Silenciosa de Ventas. Tienes bases razonables, pero existen problemas específicos de conversión que podrían poner en riesgo de fuga a cerca del ${fugaRate}% de tus visitas diarias.`;
+      } else {
+        summary = `✅ Estado Saludable. Tienes una web y marca sólidas. Sin embargo, persisten pequeños detalles técnicos y de copy que causan un riesgo de fuga de hasta el ${fugaRate}% de tus prospectos potenciales actuales.`;
+      }
     }
 
     if (diagnosticSummary) diagnosticSummary.textContent = summary;

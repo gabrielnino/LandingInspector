@@ -37,6 +37,11 @@
               'logo-pro': {
                 h1: 'Tu <span class="highlight-text">logo genérico</span> está costándote <span class="highlight-text">clientes</span>',
                 sub: 'Descubre punto por punto qué arreglar primero en tu logo y tu web, en un diagnóstico gratis de 2 minutos.'
+              },
+              'seguridad-ia': {
+                h1: '¿Es seguro automatizar el <span class="highlight-text">WhatsApp</span> de tu negocio con <span class="highlight-text">IA</span>?',
+                sub: 'Descubre en 2 minutos si tu empresa está expuesta a alucinaciones de la IA o multas por spam en EE.UU. y Canadá. Haz el diagnóstico rápido y descarga gratis la plantilla de seguridad n8n.',
+                btn1: 'Hacer diagnóstico de seguridad &rarr;'
               }
             };
             try {
@@ -44,18 +49,20 @@
               if (ad && MENSAJES[ad]) {
                 var t = document.getElementById('hero-title');
                 var s = document.getElementById('hero-subtitle');
+                var b1 = document.getElementById('hero-btn1');
                 if (t) t.innerHTML = MENSAJES[ad].h1;
                 if (s) s.textContent = MENSAJES[ad].sub;
+                if (b1 && MENSAJES[ad].btn1) b1.innerHTML = MENSAJES[ad].btn1;
               }
             } catch (e) {}
           })();
         </script>
         
         <div class="hero-actions">
-          <a href="#audit" class="btn btn-primary btn-lg-scale">
+          <a href="#audit" id="hero-btn1" class="btn btn-primary btn-lg-scale">
             Hacer mi auto-auditoría &rarr;
           </a>
-          <a href="#offer" class="btn btn-secondary btn-lg-scale">
+          <a href="#offer" id="hero-btn2" class="btn btn-secondary btn-lg-scale">
             Pedir auditoría personal
           </a>
         </div>
